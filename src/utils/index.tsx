@@ -31,6 +31,13 @@ export const getSanitizedConfig = (
       github: {
         username: config.github.username,
       },
+      profile: {
+        name: config?.profile?.name || '',
+        headline: config?.profile?.headline || '',
+        about: config?.profile?.about || '',
+        location: config?.profile?.location || '',
+        avatar: config?.profile?.avatar || '',
+      },
       projects: {
         github: {
           display: config?.projects?.github?.display ?? true,
@@ -52,6 +59,7 @@ export const getSanitizedConfig = (
         },
         external: {
           header: config?.projects?.external?.header || 'My Projects',
+          intro: config?.projects?.external?.intro || '',
           projects: config?.projects?.external?.projects || [],
         },
       },
@@ -59,6 +67,7 @@ export const getSanitizedConfig = (
         title: config?.seo?.title,
         description: config?.seo?.description,
         imageURL: config?.seo?.imageURL,
+        siteUrl: config?.seo?.siteUrl,
       },
       social: {
         linkedin: config?.social?.linkedin,
@@ -75,6 +84,7 @@ export const getSanitizedConfig = (
         website: config?.social?.website,
         phone: config?.social?.phone,
         email: config?.social?.email,
+        googleScholar: config?.social?.googleScholar,
         skype: config?.social?.skype,
         telegram: config?.social?.telegram,
         researchGate: config?.social?.researchGate,
@@ -222,6 +232,11 @@ export const ga = {
       console.error(error);
     }
   },
+};
+
+export const formatSpan = (from?: string, to?: string): string => {
+  if (from && to && from !== to) return `${from} - ${to}`;
+  return from || to || '';
 };
 
 export const getLanguageColor = (language: string): string => {

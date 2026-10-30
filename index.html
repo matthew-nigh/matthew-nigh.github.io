@@ -6,23 +6,28 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%- metaTitle %></title>
-
-    <meta property="title" content="<%- metaTitle %>" />
     <meta name="description" content="<%- metaDescription %>" />
+    <link rel="canonical" href="<%- siteUrl %>" />
 
-    <meta itemprop="name" content="<%- metaTitle %>" />
-    <meta itemprop="description" content="<%- metaDescription %>" />
-    <meta itemprop="image" content="<%- metaImageURL %>" />
-
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<%- siteUrl %>" />
     <meta property="og:title" content="<%- metaTitle %>" />
     <meta property="og:description" content="<%- metaDescription %>" />
     <meta property="og:image" content="<%- metaImageURL %>" />
-    <meta property="og:image:secure_url" content="<%- metaImageURL %>" />
+    <meta property="og:image:alt" content="<%- metaImageAlt %>" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="<%- metaTitle %>" />
     <meta name="twitter:description" content="<%- metaDescription %>" />
     <meta name="twitter:image" content="<%- metaImageURL %>" />
+    <meta name="twitter:image:alt" content="<%- metaImageAlt %>" />
+
+    <!-- TODO: add Matthew's LinkedIn profile URL to Person.sameAs in gitprofile.config.ts. -->
+    <script type="application/ld+json">
+      <%- jsonLd %>
+    </script>
   </head>
   <body>
     <div id="root"></div>

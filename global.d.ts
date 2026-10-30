@@ -73,6 +73,11 @@ interface ExternalProjects {
   header?: string;
 
   /**
+   * Short introduction shown under the header
+   */
+  intro?: string;
+
+  /**
    * Project list
    */
   projects?: {
@@ -104,6 +109,11 @@ interface SEO {
    * Meta image
    */
   imageURL?: string;
+
+  /**
+   * Canonical site URL, including trailing slash
+   */
+  siteUrl?: string;
 }
 
 interface Social {
@@ -191,6 +201,11 @@ interface Social {
    * Email
    */
   email?: string;
+
+  /**
+   * Google Scholar profile URL
+   */
+  googleScholar?: string;
 }
 
 interface Resume {
@@ -206,6 +221,15 @@ interface Experience {
   from: string;
   to: string;
   companyLink?: string;
+  description?: string;
+}
+
+interface ProfileOverride {
+  name?: string;
+  headline?: string;
+  about?: string;
+  location?: string;
+  avatar?: string;
 }
 
 interface Certification {
@@ -343,6 +367,11 @@ interface Config {
    * GitHub config
    */
   github: Github;
+
+  /**
+   * Local profile copy. When name is set, the page does not use the GitHub bio.
+   */
+  profile?: ProfileOverride;
 
   /**
    * Vite's base url

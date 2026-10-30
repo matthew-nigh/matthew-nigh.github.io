@@ -1,3 +1,53 @@
+# Matthew Nigh
+
+Personal site for Matthew Nigh, a Computer Engineering PhD student at UC San Diego. It keeps the [GitProfile](https://github.com/arifszn/gitprofile) theme (Vite, React, and Tailwind). The canonical URL is [https://matthew-nigh.github.io/](https://matthew-nigh.github.io/).
+
+## Preview locally
+
+```shell
+npm ci
+npm run dev
+```
+
+Open [http://localhost:5173/](http://localhost:5173/).
+
+To check the production build:
+
+```shell
+npm run build
+npm run preview
+```
+
+## Publications
+
+`src/data/publications.json` is generated from [DBLP pid 339/2053](https://dblp.org/pid/339/2053) (SPARQL) and [Semantic Scholar author 2189908711](https://www.semanticscholar.org/author/2189908711). Those IDs were checked against Matthew's known titles, including the ITC 2024 synthetic process-control paper, the ICIP 2022 radar super-resolution paper, and "Unveiling the Mask".
+
+Hand-curated extras live in `src/data/publication-overrides.json`: display order, highlight flags, the Best Paper Honorable Mention badge, the provisional "Beyond Monte Carlo..." title, and the under-review entry. The update script never writes that file.
+
+The update merges into the existing catalog. A paper that DBLP or Semantic Scholar omits stays in `publications.json`. An arXiv copy of a conference paper is folded into the conference record. Citation counts are stored when Semantic Scholar provides them.
+
+Run it by hand:
+
+```shell
+npm run publications:update
+```
+
+`npm run publications:update -- --dry-run` prints the catalog and does not write a file. The command rewrites `src/data/publications.json` only when the paper list changed.
+
+The **Update publications** GitHub Actions workflow runs every Monday at 13:00 UTC. Start it by hand under Actions → Update publications → Run workflow.
+
+Repository settings this needs after merge:
+
+- **Settings → Actions → General → Workflow permissions:** Read and write permissions. The workflow commits `src/data/publications.json` to the default branch when it changes. The repository default is often read-only, which blocks that commit.
+- If `main` is protected, allow `github-actions[bot]` to push, or the scheduled run will fail.
+- A push made with the default `GITHUB_TOKEN` does not start other workflows. When the catalog changes, this workflow deploys GitHub Pages itself. That deploy uses the existing `github-pages` environment.
+
+## SEO
+
+This is a single-page Vite app, so the tags that `jekyll-seo-tag` and `jekyll-sitemap` would add on a Jekyll site are in `index.html`, `public/sitemap.xml`, and `public/robots.txt` instead. The sitemap lists the canonical homepage and `robots.txt` allows all crawlers.
+
+---
+
 <br/>
 
 <p align="center">

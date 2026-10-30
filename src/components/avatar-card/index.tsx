@@ -1,7 +1,6 @@
 import { FALLBACK_IMAGE } from '../../constants';
 import { Profile } from '../../interfaces/profile';
 import { skeleton } from '../../utils';
-import LazyImage from '../lazy-image';
 
 interface AvatarCardProps {
   profile: Profile | null;
@@ -46,22 +45,16 @@ const AvatarCard: React.FC<AvatarCardProps> = ({
                   : ''
               }`}
             >
-              {
-                <LazyImage
-                  src={profile.avatar ? profile.avatar : FALLBACK_IMAGE}
-                  alt={profile.name}
-                  placeholder={skeleton({
-                    widthCls: 'w-full',
-                    heightCls: 'h-full',
-                    shape: '',
-                  })}
-                />
-              }
+              <img
+                src={profile.avatar ? profile.avatar : FALLBACK_IMAGE}
+                alt={profile.name}
+                title="TODO: replace with a photo"
+              />
             </div>
           </div>
         )}
         <div className="text-center mx-auto px-8">
-          <h5 className="font-bold text-2xl">
+          <h1 className="font-bold text-2xl">
             {loading || !profile ? (
               skeleton({ widthCls: 'w-48', heightCls: 'h-8' })
             ) : (
@@ -69,18 +62,27 @@ const AvatarCard: React.FC<AvatarCardProps> = ({
                 {profile.name}
               </span>
             )}
-          </h5>
-          <div className="mt-3 text-base-content text-opacity-60 font-mono">
+          </h1>
+          <p className="mt-3 text-base-content text-opacity-60 font-mono">
             {loading || !profile
               ? skeleton({ widthCls: 'w-48', heightCls: 'h-5' })
               : profile.bio}
-          </div>
+          </p>
         </div>
         {resumeFileUrl &&
           (loading ? (
             <div className="mt-6">
               {skeleton({ widthCls: 'w-40', heightCls: 'h-8' })}
             </div>
+          ) : resumeFileUrl.toUpperCase().startsWith('TODO') ? (
+            <button
+              type="button"
+              className="btn btn-outline btn-sm text-xs mt-6 opacity-50"
+              disabled
+              title="TODO: add a public CV PDF"
+            >
+              Download CV (TODO)
+            </button>
           ) : (
             <a
               href={resumeFileUrl}
@@ -89,7 +91,7 @@ const AvatarCard: React.FC<AvatarCardProps> = ({
               download
               rel="noreferrer"
             >
-              Download Resume
+              Download CV
             </a>
           ))}
       </div>

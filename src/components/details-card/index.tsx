@@ -4,7 +4,7 @@ import {
   AiFillInstagram,
   AiFillMediumSquare,
 } from 'react-icons/ai';
-import { SiTwitter, SiResearchgate } from 'react-icons/si';
+import { SiTwitter, SiResearchgate, SiGooglescholar } from 'react-icons/si';
 import { CgDribbble } from 'react-icons/cg';
 import { RiPhoneFill, RiMailFill } from 'react-icons/ri';
 import { Fragment } from 'react';
@@ -34,6 +34,9 @@ type Props = {
   social: SanitizedSocial;
   github: SanitizedGithub;
 };
+
+const isTodo = (value?: string): boolean =>
+  !!value && value.trim().toUpperCase().startsWith('TODO');
 
 const isCompanyMention = (company: string): boolean => {
   return company.startsWith('@') && !company.includes(' ');
@@ -115,8 +118,17 @@ const DetailsCard = ({ profile, loading, social, github }: Props) => {
   };
 
   return (
-    <div className="card shadow-lg compact bg-base-100">
+    <div id="contact" className="card shadow-lg compact bg-base-100">
       <div className="card-body">
+        <div className="mx-3 mb-2">
+          <h2 className="card-title">
+            {loading || !profile ? (
+              skeleton({ widthCls: 'w-32', heightCls: 'h-8' })
+            ) : (
+              <span className="text-base-content opacity-70">Contact</span>
+            )}
+          </h2>
+        </div>
         <div className="text-base-content text-opacity-60">
           {loading || !profile ? (
             renderSkeleton()
@@ -147,6 +159,14 @@ const DetailsCard = ({ profile, loading, social, github }: Props) => {
                 value={github.username}
                 link={`https://github.com/${github.username}`}
               />
+              {social?.googleScholar && (
+                <ListItem
+                  icon={<SiGooglescholar />}
+                  title="Google Scholar:"
+                  value="Profile"
+                  link={social.googleScholar}
+                />
+              )}
               {social?.researchGate && (
                 <ListItem
                   icon={<SiResearchgate />}
@@ -176,7 +196,11 @@ const DetailsCard = ({ profile, loading, social, github }: Props) => {
                   icon={<FaLinkedin />}
                   title="LinkedIn:"
                   value={social.linkedin}
-                  link={`https://www.linkedin.com/in/${social.linkedin}`}
+                  link={
+                    isTodo(social.linkedin)
+                      ? undefined
+                      : `https://www.linkedin.com/in/${social.linkedin}`
+                  }
                 />
               )}
               {social?.dribbble && (
@@ -286,7 +310,9 @@ const DetailsCard = ({ profile, loading, social, github }: Props) => {
                   icon={<RiMailFill />}
                   title="Email:"
                   value={social.email}
-                  link={`mailto:${social.email}`}
+                  link={
+                    isTodo(social.email) ? undefined : `mailto:${social.email}`
+                  }
                 />
               )}
             </Fragment>

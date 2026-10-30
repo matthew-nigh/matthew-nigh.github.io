@@ -6,11 +6,13 @@ import { SanitizedExternalProject } from '../../interfaces/sanitized-config';
 const ExternalProjectCard = ({
   externalProjects,
   header,
+  intro,
   loading,
   googleAnalyticId,
 }: {
   externalProjects: SanitizedExternalProject[];
   header: string;
+  intro?: string;
   loading: boolean;
   googleAnalyticId?: string;
 }) => {
@@ -67,41 +69,22 @@ const ExternalProjectCard = ({
   };
 
   const renderExternalProjects = () => {
-    return externalProjects.map((item, index) => (
-      <a
-        className="card shadow-lg compact bg-base-100 cursor-pointer"
-        key={index}
-        href={item.link}
-        onClick={(e) => {
-          e.preventDefault();
-
-          try {
-            if (googleAnalyticId) {
-              ga.event('Click External Project', {
-                post: item.title,
-              });
-            }
-          } catch (error) {
-            console.error(error);
-          }
-
-          window?.open(item.link, '_blank');
-        }}
-      >
+    return externalProjects.map((item, index) => {
+      const body = (
         <div className="p-8 h-full w-full">
           <div className="flex items-center flex-col">
             <div className="w-full">
               <div className="px-4">
                 <div className="text-center w-full">
-                  <h2 className="font-medium text-center opacity-60 mb-2">
+                  <h3 className="font-medium text-center opacity-60 mb-2">
                     {item.title}
-                  </h2>
+                  </h3>
                   {item.imageUrl && (
                     <div className="avatar opacity-90">
                       <div className="w-24 h-24 mask mask-squircle">
                         <LazyImage
                           src={item.imageUrl}
-                          alt={'thumbnail'}
+                          alt={item.title}
                           placeholder={skeleton({
                             widthCls: 'w-full',
                             heightCls: 'h-full',
@@ -119,19 +102,50 @@ const ExternalProjectCard = ({
             </div>
           </div>
         </div>
-      </a>
-    ));
+      );
+
+      if (!item.link) {
+        return (
+          <div className="card shadow-lg compact bg-base-100" key={index}>
+            {body}
+          </div>
+        );
+      }
+
+      return (
+        <a
+          className="card shadow-lg compact bg-base-100 cursor-pointer"
+          key={index}
+          href={item.link}
+          target="_blank"
+          rel="noreferrer"
+          onClick={() => {
+            try {
+              if (googleAnalyticId) {
+                ga.event('Click External Project', {
+                  post: item.title,
+                });
+              }
+            } catch (error) {
+              console.error(error);
+            }
+          }}
+        >
+          {body}
+        </a>
+      );
+    });
   };
 
   return (
     <Fragment>
-      <div className="col-span-1 lg:col-span-2">
+      <div id="research" className="col-span-1 lg:col-span-2">
         <div className="grid grid-cols-2 gap-6">
           <div className="col-span-2">
             <div className="card compact bg-base-100 shadow bg-opacity-40">
               <div className="card-body">
                 <div className="mx-3 flex items-center justify-between mb-2">
-                  <h5 className="card-title">
+                  <h2 className="card-title">
                     {loading ? (
                       skeleton({ widthCls: 'w-40', heightCls: 'h-8' })
                     ) : (
@@ -139,8 +153,13 @@ const ExternalProjectCard = ({
                         {header}
                       </span>
                     )}
-                  </h5>
+                  </h2>
                 </div>
+                {!loading && intro && (
+                  <p className="mx-3 mb-2 text-sm text-base-content text-opacity-60 text-justify">
+                    {intro}
+                  </p>
+                )}
                 <div className="col-span-2">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {loading ? renderSkeleton() : renderExternalProjects()}

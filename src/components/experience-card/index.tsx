@@ -1,17 +1,19 @@
 import React, { Fragment } from 'react';
 import { SanitizedExperience } from '../../interfaces/sanitized-config';
-import { skeleton } from '../../utils';
+import { formatSpan, skeleton } from '../../utils';
 
 const ListItem = ({
   time,
   position,
   company,
   companyLink,
+  description,
 }: {
   time: React.ReactNode;
   position?: React.ReactNode;
   company?: React.ReactNode;
   companyLink?: string;
+  description?: string;
 }) => (
   <li className="mb-5 ml-4">
     <div
@@ -21,9 +23,14 @@ const ListItem = ({
     <div className="my-0.5 text-xs">{time}</div>
     <h3 className="font-semibold">{position}</h3>
     <div className="mb-4 font-normal">
-      <a href={companyLink} target="_blank" rel="noreferrer">
-        {company}
-      </a>
+      {companyLink ? (
+        <a href={companyLink} target="_blank" rel="noreferrer">
+          {company}
+        </a>
+      ) : (
+        <span>{company}</span>
+      )}
+      {description ? <p className="mt-1 text-sm">{description}</p> : null}
     </div>
   </li>
 );
@@ -58,16 +65,16 @@ const ExperienceCard = ({
     return array;
   };
   return (
-    <div className="card shadow-lg compact bg-base-100">
+    <div id="experience" className="card shadow-lg compact bg-base-100">
       <div className="card-body">
         <div className="mx-3">
-          <h5 className="card-title">
+          <h2 className="card-title">
             {loading ? (
               skeleton({ widthCls: 'w-32', heightCls: 'h-8' })
             ) : (
               <span className="text-base-content opacity-70">Experience</span>
             )}
-          </h5>
+          </h2>
         </div>
         <div className="text-base-content text-opacity-60">
           <ol className="relative border-l border-base-300 border-opacity-30 my-2 mx-4">
@@ -78,7 +85,7 @@ const ExperienceCard = ({
                 {experiences.map((experience, index) => (
                   <ListItem
                     key={index}
-                    time={`${experience.from} - ${experience.to}`}
+                    time={formatSpan(experience.from, experience.to)}
                     position={experience.position}
                     company={experience.company}
                     companyLink={
@@ -86,6 +93,7 @@ const ExperienceCard = ({
                         ? experience.companyLink
                         : undefined
                     }
+                    description={experience.description}
                   />
                 ))}
               </Fragment>
