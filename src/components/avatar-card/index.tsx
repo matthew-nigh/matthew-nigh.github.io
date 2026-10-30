@@ -79,19 +79,18 @@ const AvatarCard: React.FC<AvatarCardProps> = ({
               type="button"
               className="btn btn-outline btn-sm text-xs mt-6 opacity-50"
               disabled
-              title="TODO: add a public CV PDF"
+              title="TODO: add a Google Drive CV link"
             >
-              Download CV (TODO)
+              View CV (TODO)
             </button>
           ) : (
             <a
               href={resumeFileUrl}
               target="_blank"
               className="btn btn-outline btn-sm text-xs mt-6 opacity-50"
-              download
               rel="noreferrer"
             >
-              Download CV
+              View CV
             </a>
           ))}
       </div>

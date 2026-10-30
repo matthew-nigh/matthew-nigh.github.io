@@ -70,13 +70,13 @@ const CONFIG = {
     imageURL: 'https://matthew-nigh.github.io/og-image.png',
     siteUrl: 'https://matthew-nigh.github.io/',
   },
-  // TODO: add Matthew's LinkedIn profile URL to structuredData.sameAs.
   structuredData: {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: 'Matthew Nigh',
     url: 'https://matthew-nigh.github.io/',
     image: 'https://matthew-nigh.github.io/avatar.png',
+    email: 'mnigh@ucsd.edu',
     jobTitle: 'PhD student',
     homeLocation: {
       '@type': 'Place',
@@ -99,15 +99,17 @@ const CONFIG = {
     sameAs: [
       'https://scholar.google.com/citations?user=zMhLeaoAAAAJ',
       'https://github.com/matthew-nigh',
+      'https://www.linkedin.com/in/matthew-nigh',
     ],
   },
   social: {
-    linkedin: 'TODO',
+    linkedin: 'matthew-nigh',
     googleScholar: 'https://scholar.google.com/citations?user=zMhLeaoAAAAJ',
-    email: 'TODO',
+    email: 'mnigh@ucsd.edu',
   },
   resume: {
-    // TODO: add a public CV PDF URL.
+    // Google Drive "anyone with the link can view" URL. The CV button opens it in a new tab.
+    // TODO: add the Drive CV URL.
     fileUrl: 'TODO',
   },
   skills: [
