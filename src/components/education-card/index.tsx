@@ -1,6 +1,6 @@
 import React from 'react';
 import { SanitizedEducation } from '../../interfaces/sanitized-config';
-import { skeleton } from '../../utils';
+import { formatSpan, skeleton } from '../../utils';
 
 const ListItem = ({
   time,
@@ -56,13 +56,13 @@ const EducationCard = ({
     <div className="card shadow-lg compact bg-base-100">
       <div className="card-body">
         <div className="mx-3">
-          <h5 className="card-title">
+          <h2 id="education" className="card-title">
             {loading ? (
               skeleton({ widthCls: 'w-32', heightCls: 'h-8' })
             ) : (
               <span className="text-base-content opacity-70">Education</span>
             )}
-          </h5>
+          </h2>
         </div>
         <div className="text-base-content text-opacity-60">
           <ol className="relative border-l border-base-300 border-opacity-30 my-2 mx-4">
@@ -73,7 +73,7 @@ const EducationCard = ({
                 {educations.map((item, index) => (
                   <ListItem
                     key={index}
-                    time={`${item.from} - ${item.to}`}
+                    time={formatSpan(item.from, item.to)}
                     degree={item.degree}
                     institution={item.institution}
                   />

@@ -30,6 +30,8 @@ import ExternalProjectCard from './external-project-card';
 import BlogCard from './blog-card';
 import Footer from './footer';
 import PublicationCard from './publication-card';
+import AboutCard from './about-card';
+import { publicationView } from '../utils/publications';
 
 /**
  * Renders the GitProfile component.
@@ -43,8 +45,18 @@ const GitProfile = ({ config }: { config: Config }) => {
   );
   const [theme, setTheme] = useState<string>(DEFAULT_THEMES[0]);
   const [error, setError] = useState<CustomError | null>(null);
-  const [loading, setLoading] = useState<boolean>(false);
-  const [profile, setProfile] = useState<Profile | null>(null);
+  const hasLocalProfile = Boolean(sanitizedConfig.profile?.name);
+  const [loading, setLoading] = useState<boolean>(!hasLocalProfile);
+  const [profile, setProfile] = useState<Profile | null>(
+    hasLocalProfile
+      ? {
+          avatar: sanitizedConfig.profile.avatar,
+          name: sanitizedConfig.profile.name,
+          bio: sanitizedConfig.profile.headline,
+          location: sanitizedConfig.profile.location,
+        }
+      : null,
+  );
   const [githubProjects, setGithubProjects] = useState<GithubProject[]>([]);
 
   const getGithubProjects = useCallback(
@@ -137,7 +149,9 @@ const GitProfile = ({ config }: { config: Config }) => {
       setError(null);
       setTheme(getInitialTheme(sanitizedConfig.themeConfig));
       setupHotjar(sanitizedConfig.hotjar);
-      loadData();
+      if (!sanitizedConfig.profile?.name) {
+        loadData();
+      }
     }
   }, [sanitizedConfig, loadData]);
 
@@ -246,6 +260,12 @@ const GitProfile = ({ config }: { config: Config }) => {
                 </div>
                 <div className="lg:col-span-2 col-span-1">
                   <div className="grid grid-cols-1 gap-6">
+                    {sanitizedConfig.profile.about && (
+                      <AboutCard
+                        about={sanitizedConfig.profile.about}
+                        loading={loading}
+                      />
+                    )}
                     {sanitizedConfig.projects.github.display && (
                       <GithubProjectCard
                         header={sanitizedConfig.projects.github.header}
@@ -256,21 +276,23 @@ const GitProfile = ({ config }: { config: Config }) => {
                         googleAnalyticsId={sanitizedConfig.googleAnalytics.id}
                       />
                     )}
-                    {sanitizedConfig.publications.length !== 0 && (
-                      <PublicationCard
-                        loading={loading}
-                        publications={sanitizedConfig.publications}
-                      />
-                    )}
                     {sanitizedConfig.projects.external.projects.length !==
                       0 && (
                       <ExternalProjectCard
                         loading={loading}
                         header={sanitizedConfig.projects.external.header}
+                        intro={sanitizedConfig.projects.external.intro}
                         externalProjects={
                           sanitizedConfig.projects.external.projects
                         }
                         googleAnalyticId={sanitizedConfig.googleAnalytics.id}
+                      />
+                    )}
+                    {publicationView.papers.length !== 0 && (
+                      <PublicationCard
+                        loading={loading}
+                        publications={publicationView.papers}
+                        scholarUrl={publicationView.scholarUrl}
                       />
                     )}
                     {sanitizedConfig.blog.display && (

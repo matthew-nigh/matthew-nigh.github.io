@@ -1,253 +1,208 @@
 // gitprofile.config.ts
+// Canonical site: https://matthew-nigh.github.io/
 
 const CONFIG = {
   github: {
-    username: 'christos-vasileiou', // Your GitHub org/user name. (This is the only required config)
+    username: 'matthew-nigh',
   },
   /**
-   * If you are deploying to https://<USERNAME>.github.io/, for example your repository is at https://github.com/christos-vasileiou/christos-vasileiou.github.io, set base to '/'.
-   * If you are deploying to https://<USERNAME>.github.io/<REPO_NAME>/,
-   * for example your repository is at https://github.com/christos-vasileiou/portfolio, then set base to '/portfolio/'.
+   * User site at https://matthew-nigh.github.io/ uses base '/'.
    */
   base: '/',
+  profile: {
+    name: 'Matthew Nigh',
+    headline:
+      'ML for physical-system data: fusion, semiconductor manufacturing, and radar imaging.',
+    about:
+      "Matthew Nigh is a Computer Engineering PhD candidate at UC San Diego (TRELA Lab, advised by Yiorgos Makris), graduating June 2027. He builds machine learning for complex physical-system data: synthetic data and variability analysis for semiconductor manufacturing test, and, as a DOE SULI intern at Princeton Plasma Physics Laboratory, closed-loop vertical-position control modeling for the NSTX-U tokamak. He's looking for ML research and applied data science roles in fusion energy, national labs, and advanced manufacturing, starting mid-2027.",
+    location: 'La Jolla / San Diego, CA',
+    // TODO: replace the initials image with a photo.
+    avatar: '/avatar.svg',
+  },
   projects: {
     github: {
-      display: false, // Display GitHub projects?
+      display: false,
       header: 'Github Projects',
-      mode: 'manual', // Mode can be: 'automatic' or 'manual'
+      mode: 'manual',
       automatic: {
-        sortBy: 'stars', // Sort projects by 'stars' or 'updated'
-        limit: 4, // How many projects to display.
+        sortBy: 'stars',
+        limit: 0,
         exclude: {
-          forks: true, // Forked projects will not be displayed if set to true.
-          projects: [], // These projects will not be displayed. example: ['christos-vasileiou/my-project1', 'christos-vasileiou/my-project2']
+          forks: true,
+          projects: [],
         },
       },
       manual: {
-        // Properties for manually specifying projects
-        projects: ['christos-vasileiou/atpgllm', 'christos-vasileiou/logic-synth-ic', 'christos-vasileiou/sobel-filter-FPGA'], // List of repository names to display. example: ['christos-vasileiou/my-project1', 'christos-vasileiou/my-project2']
+        projects: [],
       },
     },
     external: {
-      header: 'My Projects',
-      // To hide the `External Projects` section, keep it empty.
+      header: 'Research',
+      intro:
+        'Machine learning for physical-system data: synthetic data and explainable ML for semiconductor manufacturing test, yield analytics on wafer measurements, and deep learning for radar imaging. A longer-term interest is plasma control, fusion diagnostics, and fusion data analysis.',
       projects: [
         {
-          title: 'Digitest.LLM',
+          title: 'NSTX-U vertical-position control',
           description:
-            'A pilot study exploring whether Large Language Models (LLMs) can generate test vectors for stuck-at faults in gate-level combinational circuits. Unlike conventional ATPG, which relies on algorithmic Boolean reasoning, LLMs lack such capability. However, we hypothesize that a “language of test” exists, capable of capturing how input stimuli expose differences between fault-free and faulty netlist functionality - analogous to how natural language expresses meaning through symbol substitution. This stems from observing that netlists, like text, comprise functional paths of logic gates combining signals, akin to sentences combining words. To test this hypothesis, we generated 958K test vectors across 40K randomly generated combinational circuits, using fault-simulation results to fine-tune a 7 billion parameter Llama-2 model via Low-Rank Adaptation (LoRA), Supervised Fine-Tuning (SFT), and Group Relative Policy Optimization (GRPO) to mitigate hallucinations. On unseen netlists, the model generates test vectors for target faults with over 80\% success—far exceeding random test generation. While only preliminary, these findings suggest LLMs can learn this “language of test” and aid test generation, warranting further research into training, fine-tuning, and prompt engineering to boost accuracy and utility.',
-          imageUrl:
-            'https://github.com/christos-vasileiou/digitest.llm',
-          link: 'https://github.com/christos-vasileiou/digitest.llm',
+            'DOE SULI internship at Princeton Plasma Physics Laboratory (Summer 2020): closed-loop vertical-position control modeling for the NSTX-U tokamak, plus plasma simulation and data analysis. The longer-term interest is machine learning for plasma control, fusion diagnostics, and fusion data analysis.',
+          link: '',
         },
         {
-          title: 'Mobile-SRGAN',
+          title: 'Wafer-data ML pipelines',
           description:
-            'We introduce an innovative super resolution approach to emerging modes of near-field synthetic aperture radar (SAR) imaging. Recent research extends convolutional neural network (CNN) architectures from the optical to the electromagnetic domain to achieve super resolution on images generated from radar signaling. Specifically, near-field synthetic aperture radar (SAR) imaging, a method for generating high-resolution images by scanning a radar across space to create a synthetic aperture, is of interest due to its high-fidelity spatial sensing capability, low cost devices, and large application space. Since SAR imaging requires large aperture sizes to achieve high resolution, super-resolution algorithms are valuable for many applications. Freehand smartphone SAR, an emerging sensing modality, requires irregular SAR apertures in the near-field and computation on mobile devices. Achieving efficient high-resolution SAR images from irregularly sampled data collected by freehand motion of a smartphone is a challenging task. In this paper, we propose a novel CNN architecture to achieve SAR image super-resolution for mobile applications by employing state-of-the-art SAR processing and deep learning techniques. The proposed algorithm is verified via simulation and an empirical study. Our algorithm demonstrates high-efficiency and high-resolution radar imaging for near-field scenarios with irregular scanning geometries.',
-          imageUrl:
-            'https://github.com/christos-vasileiou/mobile-SRGAN/blob/main/pics/flowchart.png?raw=true',
-          link: 'https://github.com/christos-vasileiou/mobile-SRGAN',
+            'Machine Learning Engineering internship at Advantest America (Summer 2022): machine learning pipelines on large wafer test datasets for yield analytics.',
+          link: '',
         },
         {
-          title: 'Forestland Fire Detection',
+          title: 'SAR imaging',
           description:
-            'Wildfires is a major social problem considering that the aftermath can be costly for the environment (losses of animals, properties, cultural heritage) as well as for the society, causing loss of human life. Many efforts have been made in order to develop applications or systems able to detect wildfires early and, thus, prevent or even limit their negative consequences. Using satellites may limit the frequency of wildfire detection and as a consequence the correct and timely assessment of the situation. The solution is to use a system capable of timely fire detection on the surface near the fire spot through visual stimulation, using the conjunction of two disciplines of the computer science. Artificial intelligence, (and specifically, computer vision) in conjunction with the deployment of hardware accelerators and embedded systems. My thesis is based on the architecture of the You-Only-Look-Once (YOLO) algorithm which is used to detect objects with specific features like color, shape, form, etc. The architecture acceleration runs on the Edge TPU of the Coral Dev Board device developed by Google, having the edge over other TPUs that it runs extremely power efficient.',
-          imageUrl:
-            'https://github.com/christos-vasileiou/forestland-fire-detection/blob/master/my_data/fire_91.jpg?raw=true',
-          link: 'https://github.com/christos-vasileiou/forestland-fire-detection',
+            'AI/ML research internship at KBR (May 2024–present): synthetic aperture radar imaging with complex-valued neural networks and AWS cloud training.',
+          link: '',
         },
       ],
     },
   },
   seo: {
-    title: 'Portfolio of Christos Vasileiou',
-    description: '',
-    imageURL: '',
+    title:
+      'Matthew Nigh | ML for Fusion, Semiconductor Manufacturing &amp; Radar Imaging',
+    description:
+      'Matthew Nigh is a Computer Engineering PhD student at UC San Diego. He builds machine learning for fusion energy, semiconductor manufacturing and test, and radar imaging.',
+    imageURL: 'https://matthew-nigh.github.io/og-image.png',
+    siteUrl: 'https://matthew-nigh.github.io/',
+  },
+  structuredData: {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Matthew Nigh',
+    url: 'https://matthew-nigh.github.io/',
+    image: 'https://matthew-nigh.github.io/avatar.png',
+    email: 'mnigh@ucsd.edu',
+    jobTitle: 'PhD student',
+    homeLocation: {
+      '@type': 'Place',
+      name: 'La Jolla, San Diego, CA',
+    },
+    affiliation: {
+      '@type': 'CollegeOrUniversity',
+      name: 'UC San Diego',
+    },
+    alumniOf: [
+      {
+        '@type': 'CollegeOrUniversity',
+        name: 'University of Texas at Dallas',
+      },
+      {
+        '@type': 'CollegeOrUniversity',
+        name: 'University of Wisconsin-Platteville',
+      },
+    ],
+    sameAs: [
+      'https://scholar.google.com/citations?user=zMhLeaoAAAAJ',
+      'https://github.com/matthew-nigh',
+      'https://www.linkedin.com/in/matthew-nigh',
+    ],
   },
   social: {
-    linkedin: 'chrivasileiou',
-    twitter: 'christos_vasil',
-    mastodon: '',
-    researchGate: '',
-    facebook: '',
-    instagram: '',
-    youtube: '', // example: 'pewdiepie'
-    dribbble: '',
-    behance: '',
-    medium: '',
-    dev: '',
-    stackoverflow: '', // example: '1/jeff-atwood'
-    skype: '',
-    telegram: '',
-    website: '',
-    phone: '',
-    email: 'chrivasileiou2@gmail.com',
+    linkedin: 'matthew-nigh',
+    googleScholar: 'https://scholar.google.com/citations?user=zMhLeaoAAAAJ',
+    email: 'mnigh@ucsd.edu',
   },
   resume: {
-    fileUrl:
-      'https://drive.google.com/file/d/1a8gKO3nJnQYRN1qHmhzsYyNWcMoOIwqG/view?usp=sharing', // Empty fileUrl will hide the `Download Resume` button.
+    // Google Drive "anyone with the link can view" URL. The CV button opens it in a new tab.
+    // TODO: add the Drive CV URL.
+    fileUrl: 'TODO',
   },
   skills: [
     'Python',
-    'C',
     'PyTorch',
-    'Git',
-    'huggingface',
-    'LangChain',
+    'XGBoost',
     'scikit-learn',
-    'C++',
-    'Tensorflow',
-    'Keras',
-    'NLTK',
-    'spaCy',
-    'CUDA',
+    'SHAP/explainable ML',
+    'synthetic data generation',
+    'time-series and sensor data',
+    'MATLAB/Simulink',
+    'control',
   ],
   experiences: [
     {
-      company: 'Intel Corporation',
-      position: 'Technology CAD Software Research Engineer/Scientist Internship',
-      from: 'May 2025',
-      to: 'August 2025',
-      companyLink: 'https://intel.com',
+      company: 'TRELA Lab, UC San Diego',
+      position: 'Graduate Research Assistant',
+      from: '2021',
+      to: 'Present',
+      companyLink: 'https://ucsd.edu',
+      description:
+        'Machine learning for semiconductor manufacturing and test, including synthetic data, explainable ML, and wafer-level e-test variability.',
     },
     {
-      company: 'Intel Corporation',
-      position: 'Technology CAD Software Research Engineer/Scientist Internship',
+      company: 'KBR',
+      position: 'AI/ML Research Intern',
       from: 'May 2024',
-      to: 'August 2024',
-      companyLink: 'https://intel.com',
+      to: 'Present',
+      companyLink: 'https://www.kbr.com/',
+      description:
+        'Synthetic aperture radar imaging with complex-valued neural networks and AWS cloud training.',
     },
     {
-      company: 'Intel Corporation',
-      position: 'ML-Based Pathfinding Test Developer',
-      from: 'May 2022',
-      to: 'August 2022',
-      companyLink: 'https://intel.com',
+      company: 'Advantest America',
+      position: 'Machine Learning Engineering Intern',
+      from: 'Summer 2022',
+      to: '',
+      companyLink: 'https://www.advantest.com/',
+      description:
+        'Machine learning pipelines on large wafer test datasets for yield analytics.',
     },
     {
-      company: 'CAS Lab',
-      position: 'Asynchronous Hardware Designer',
-      from: 'June 2018',
-      to: 'September 2018',
-      companyLink: 'https://caslab.e-ce.uth.gr/',
+      company: 'Princeton Plasma Physics Laboratory',
+      position: 'Lab Research Intern, DOE SULI',
+      from: 'Summer 2020',
+      to: '',
+      companyLink: 'https://www.pppl.gov/',
+      description:
+        'Plasma simulation and data analysis, including closed-loop vertical-position control modeling for the NSTX-U tokamak.',
     },
   ],
-  certifications: [
-    {
-      name: 'Artificial Intelligence 2.0: AI, Python, DRL',
-      body: 'Introduced to the Foundation Techniques of Deep Reinforcement Learning \& implementation of (Deep) Q-Learning, Policy Gradient, Actor Critic, Deep Deterministic Policy Gradient (DDPG), Twin-Delayed DDPG (TD3)',
-      year: '2024',
-      link: 'https://drive.google.com/file/d/1hwCb--ME7ki4XFXmI-BtNhQ2WOhb8zXj/view?usp=sharing',
-    },
-    {
-      name: 'Generative AI with Large Language Models',
-      body: 'Introduced to Parameter-efficient Fine Tuning (PEFT), Reinforcement learning from human feedback (RLHF), Chain-of-Thought Prompting (CoT) \& Retrieval Augmented Generation (RAG)',
-      year: '2023',
-      link: 'https://drive.google.com/file/d/1LiSkURplKL7wwzsJA8hpjsnIJ5M6IFQ6/view?usp=sharing',
-    },
-    {
-      name: 'Data Science: Transformers for Natural Language Processing',
-      body: 'Understood self-attention and in-depth theory behind transformers (encoder, decoder, and seq2seq architectures) and applied transformers to real-world tasks',
-      year: '2023',
-      link: 'https://drive.google.com/file/d/11H0HiFhwUFURELyV4Sg5eCpwMG7Od_pG/view?usp=sharing',
-    },
-    {
-      name: 'Structuring Machine Learning Projects',
-      body: '',
-      year: '2019',
-      link: 'https://drive.google.com/file/d/1b6lsacCXtEzgVcKRJt5E3cCfV2ecHM6D/view?usp=sharing',
-    },
-    {
-      name: 'Convolutional Neural Networks',
-      body: '',
-      year: '2019',
-      link: 'https://drive.google.com/file/d/1ipWQfDoHPk1TV243GiHldeY8fR0rjqak/view?usp=sharing',
-    },
-    {
-      name: 'Improving Deep Neural Networks: Hyperparameter Tuning, Regularization and Optimization',
-      body: '',
-      year: '2019',
-      link: 'https://drive.google.com/file/d/1Li7zLmvmWJx5Fdyfd1HAjLvSFvSN6mys/view?usp=sharing',
-    },
-  ],
+  certifications: [],
   educations: [
     {
-      institution: 'University of California, San Diego (UCSD)',
-      degree: 'PhD',
-      from: '2025',
-      to: 'Present',
+      institution: 'University of California, San Diego',
+      degree: 'PhD, Computer Engineering',
+      from: '',
+      to: 'Expected June 2027',
     },
     {
-      institution: 'University of Texas at Dallas (UTD)',
-      degree: 'MS',
-      from: '2021',
-      to: '2023',
+      institution: 'University of Texas at Dallas',
+      degree:
+        'MS, Computer Engineering (applied machine learning concentration)',
+      from: '',
+      to: 'Dec 2023',
     },
     {
-      institution: 'University of Thessaly, Volos, Greece',
-      degree: 'Integrated Master of Engineering',
-      from: '2014',
-      to: '2020',
+      institution: 'University of Wisconsin-Platteville',
+      degree:
+        'BS, Electrical Engineering; second major in Sustainability and Renewable Energy Systems',
+      from: '',
+      to: 'May 2021',
     },
   ],
-  publications: [
-    {
-      title: 'Teaching Llamas to Test: A Language-Based Approach',
-      conferenceName: '2025 IEEE International Test Conference (ITC)',
-      journalName: '',
-      authors: 'Christos Vasileiou, Yiorgos Makris',
-      link: 'https://ieeexplore.ieee.org/document/11219864',
-      description:
-        'A pilot study exploring whether Large Language Models (LLMs) can generate test vectors for stuck-at faults in gate-level combinational circuits. Unlike conventional ATPG, which relies on algorithmic Boolean reasoning, LLMs lack such capability. However, we hypothesize that a “language of test” exists, capable of capturing how input stimuli expose differences between fault-free and faulty netlist functionality - analogous to how natural language expresses meaning through symbol substitution. This stems from observing that netlists, like text, comprise functional paths of logic gates combining signals, akin to sentences combining words. To test this hypothesis, we generated 958K test vectors across 40K randomly generated combinational circuits, using fault-simulation results to fine-tune a 7 billion parameter Llama-2 model via Low-Rank Adaptation (LoRA), Supervised Fine-Tuning (SFT), and Group Relative Policy Optimization (GRPO) to mitigate hallucinations. On unseen netlists, the model generates test vectors for target faults with over 80\% success—far exceeding random test generation. While only preliminary, these findings suggest LLMs can learn this “language of test” and aid test generation, warranting further research into training, fine-tuning, and prompt engineering to boost accuracy and utility.',
-    },
-    {
-      title: 'Unveiling the Mask: Trusted Semiconductor Manufacturing through Wafer-Level Mask-Set Attestation',
-      conferenceName: '2025 IEEE International Conference Computer-Aided Design (ICCAD)',
-      journalName: '',
-      authors: 'Suraag Telakulla, Ching-Yi Chang, Matthew Nigh, Christos Vasileiou, Yiorgos Makris',
-      link: 'https://www.researchgate.net/profile/Ching-Yi-Chang-4/publication/396514306_Unveiling_the_Mask_Trusted_Semiconductor_Manufacturing_through_Wafer-Level_Mask-Set_Attestation/links/68efee2702d6215259bbff75/Unveiling-the-Mask-Trusted-Semiconductor-Manufacturing-through-Wafer-Level-Mask-Set-Attestation.pdf',
-      description:
-        'We introduce machine learning-based solutions for differentiating wafers fabricated using trusted and untrusted mask-sets based on the typical metrology or wafer acceptance tests collected during semiconductor manufacturing and testing. Our methods leverage the systematic nature of process variation and capture the subtle causality between mask modifications and either physical dimensions or electrical characteristics of the produced silicon, which can then be used for the purpose of wafer-level mask-set attestation. Effectiveness of our solutions is demonstrated on a dataset of inline and e-test measurements from 8000 wafers fabricated with multiple variants of a mask-set in the GlobalFoundries 12LP FinFET technology node.',
-    },
-    {
-      title: 'Efficient CNN-Based Super Resolution Algorithms for Mmwave Mobile Radar Imaging',
-      conferenceName: '2022 IEEE International Conference on Image Processing (ICIP)',
-      journalName: '',
-      authors: 'Christos Vasileiou, Josiah W. Smith, Shiva Thiagarajan, Matthew Nigh, Yiorgos Makris, Murat Torlak',
-      link: 'https://ieeexplore.ieee.org/document/9897190',
-      description:
-        'In this paper, we introduce the first CNN-based super resolution algorithm for mobile freehand SAR imaging in the near-field. Rather than training on randomly placed point targets, we improve upon previous work by incorporating solid, intricate objects in the simulation that are more representative of real-world scenarios. The proposed CNN algorithm is applied to images recovered by the EMPM algorithm yielding high-resolution low-noise SAR images and outperforming previous techniques. The Mobile-SRGAN is the first SAR super resolution algorithm developed for freehand radar imaging, a more difficult task than traditional SAR super resolution, and efficiently recovers high-resolution images with low computational cost, deeming it fit for computationally constrained applications.',
-    },
-  ],
-  // Display articles from your medium or dev account. (Optional)
+  // Loaded from src/data/publications.json plus src/data/publication-overrides.json.
+  publications: [],
   blog: {
-    source: '', // medium | dev
-    username: '', // to hide blog section, keep it empty
-    limit: 3, // How many articles to display. Max is 10.
+    source: '',
+    username: '',
+    limit: 0,
   },
   googleAnalytics: {
-    id: '', // GA3 tracking id/GA4 tag id UA-XXXXXXXXX-X | G-XXXXXXXXXX
+    id: '',
   },
-  // Track visitor interaction and behavior. https://www.hotjar.com
   hotjar: {
-    id: '', // 3876526
+    id: '',
     snippetVersion: 6,
   },
   themeConfig: {
     defaultTheme: 'procyon',
-
-    // Hides the switch in the navbar
-    // Useful if you want to support a single color mode
     disableSwitch: false,
-
-    // Should use the prefers-color-scheme media-query,
-    // using user system preferences, instead of the hardcoded defaultTheme
     respectPrefersColorScheme: false,
-
-    // Display the ring in Profile picture
     displayAvatarRing: true,
-
-    // Available themes. To remove any theme, exclude from here.
     themes: [
       'light',
       'dark',
@@ -264,8 +219,6 @@ const CONFIG = {
       'sunset',
       'procyon',
     ],
-
-    // Custom theme, applied to `procyon` theme
     customTheme: {
       primary: '#ff944d',
       secondary: '#219aaf',
@@ -276,10 +229,7 @@ const CONFIG = {
       '--rounded-btn': '3rem',
     },
   },
-
-  // Optional Footer. Supports plain text or HTML.
-  footer: `© 2025 Christos Vasileiou`,
-
+  footer: `© 2026 Matthew Nigh`,
   enablePWA: false,
 };
 

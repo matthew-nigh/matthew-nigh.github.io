@@ -1,13 +1,15 @@
 import { Fragment } from 'react';
-import { SanitizedPublication } from '../../interfaces/sanitized-config';
+import { PublicationView } from '../../utils/publications';
 import { skeleton } from '../../utils';
 
 const PublicationCard = ({
   publications,
   loading,
+  scholarUrl,
 }: {
-  publications: SanitizedPublication[];
+  publications: PublicationView[];
   loading: boolean;
+  scholarUrl?: string;
 }) => {
   const renderSkeleton = () => {
     const array = [];
@@ -19,48 +21,13 @@ const PublicationCard = ({
               <div className="w-full">
                 <div className="px-4">
                   <div className="text-center w-full">
-                    <h2 className="mb-2">
+                    <h3 className="mb-2">
                       {skeleton({
                         widthCls: 'w-32',
                         heightCls: 'h-8',
                         className: 'mb-2 mx-auto',
                       })}
-                    </h2>
-                    <div>
-                      {skeleton({
-                        widthCls: 'w-20',
-                        heightCls: 'h-4',
-                        className: 'mb-2 mx-auto',
-                      })}
-                    </div>
-                    <div>
-                      {skeleton({
-                        widthCls: 'w-20',
-                        heightCls: 'h-4',
-                        className: 'mb-2 mx-auto',
-                      })}
-                    </div>
-                    <div>
-                      {skeleton({
-                        widthCls: 'w-full',
-                        heightCls: 'h-4',
-                        className: 'mb-2 mx-auto',
-                      })}
-                    </div>
-                    <div>
-                      {skeleton({
-                        widthCls: 'w-full',
-                        heightCls: 'h-4',
-                        className: 'mb-2 mx-auto',
-                      })}
-                    </div>
-                    <div>
-                      {skeleton({
-                        widthCls: 'w-full',
-                        heightCls: 'h-4',
-                        className: 'mb-2 mx-auto',
-                      })}
-                    </div>
+                    </h3>
                   </div>
                 </div>
               </div>
@@ -74,35 +41,44 @@ const PublicationCard = ({
   };
 
   const renderPublications = () => {
-    return publications.map((item, index) => (
-      <a
-        className="card shadow-lg compact bg-base-100 cursor-pointer"
-        key={index}
-        href={item.link}
-        target="_blank"
-        rel="noreferrer"
-      >
+    return publications.map((item) => {
+      const body = (
         <div className="p-8 h-full w-full">
           <div className="flex items-center flex-col">
             <div className="w-full">
               <div className="px-4">
                 <div className="text-center w-full">
-                  <h2 className="font-medium opacity-60 mb-2">{item.title}</h2>
-                  {item.conferenceName && (
-                    <p className="text-base-content opacity-50 text-sm">
-                      {item.conferenceName}
-                    </p>
+                  {item.badges.length > 0 && (
+                    <div className="mb-2 flex flex-wrap justify-center gap-2">
+                      {item.badges.map((badge) => (
+                        <span
+                          key={badge}
+                          className="badge badge-outline badge-sm"
+                        >
+                          {badge}
+                        </span>
+                      ))}
+                    </div>
                   )}
-                  {item.journalName && (
+                  <h3 className="font-medium opacity-60 mb-2">{item.title}</h3>
+                  {(item.venue || item.year) && (
                     <p className="text-base-content opacity-50 text-sm">
-                      {item.journalName}
+                      {[item.venue, item.year].filter(Boolean).join(' ')}
                     </p>
                   )}
                   {item.authors && (
                     <p className="text-base-content opacity-50 text-sm">
-                      Author: {item.authors}
+                      Authors: {item.authors}
                     </p>
                   )}
+                  {typeof item.citationCount === 'number' &&
+                    item.citationCount > 0 && (
+                      <p className="text-base-content opacity-50 text-sm">
+                        {item.citationCount === 1
+                          ? '1 citation'
+                          : `${item.citationCount} citations`}
+                      </p>
+                    )}
                   {item.description && (
                     <p className="mt-2 text-base-content text-opacity-60 text-sm text-justify">
                       {item.description}
@@ -113,19 +89,39 @@ const PublicationCard = ({
             </div>
           </div>
         </div>
-      </a>
-    ));
+      );
+
+      if (!item.link) {
+        return (
+          <div className="card shadow-lg compact bg-base-100" key={item.id}>
+            {body}
+          </div>
+        );
+      }
+
+      return (
+        <a
+          className="card shadow-lg compact bg-base-100 cursor-pointer"
+          key={item.id}
+          href={item.link}
+          target="_blank"
+          rel="noreferrer"
+        >
+          {body}
+        </a>
+      );
+    });
   };
 
   return (
     <Fragment>
-      <div className="col-span-1 lg:col-span-2">
+      <div id="publications" className="col-span-1 lg:col-span-2">
         <div className="grid grid-cols-2 gap-6">
           <div className="col-span-2">
             <div className="card compact bg-base-100 shadow bg-opacity-40">
               <div className="card-body">
                 <div className="mx-3 flex items-center justify-between mb-2">
-                  <h5 className="card-title">
+                  <h2 className="card-title">
                     {loading ? (
                       skeleton({ widthCls: 'w-40', heightCls: 'h-8' })
                     ) : (
@@ -133,7 +129,17 @@ const PublicationCard = ({
                         Publications
                       </span>
                     )}
-                  </h5>
+                  </h2>
+                  {!loading && scholarUrl && (
+                    <a
+                      href={scholarUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="link text-sm"
+                    >
+                      Google Scholar
+                    </a>
+                  )}
                 </div>
                 <div className="col-span-2">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

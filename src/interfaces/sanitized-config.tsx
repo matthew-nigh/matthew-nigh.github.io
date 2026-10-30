@@ -28,6 +28,7 @@ export interface SanitizedExternalProject {
 
 export interface SanitizedExternalProjects {
   header: string;
+  intro: string;
   projects: SanitizedExternalProject[];
 }
 
@@ -40,6 +41,7 @@ export interface SanitizedSEO {
   title?: string;
   description?: string;
   imageURL?: string;
+  siteUrl?: string;
 }
 
 export interface SanitizedSocial {
@@ -60,6 +62,7 @@ export interface SanitizedSocial {
   telegram?: string;
   phone?: string;
   email?: string;
+  googleScholar?: string;
 }
 
 export interface SanitizedResume {
@@ -72,6 +75,15 @@ export interface SanitizedExperience {
   from: string;
   to: string;
   companyLink?: string;
+  description?: string;
+}
+
+export interface SanitizedProfile {
+  name: string;
+  headline: string;
+  about: string;
+  location: string;
+  avatar: string;
 }
 
 export interface SanitizedCertification {
@@ -134,6 +146,7 @@ export interface SanitizedThemeConfig {
 
 export interface SanitizedConfig {
   github: SanitizedGithub;
+  profile: SanitizedProfile;
   projects: SanitizedProjects;
   seo: SanitizedSEO;
   social: SanitizedSocial;

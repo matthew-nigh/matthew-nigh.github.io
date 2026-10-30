@@ -1,0 +1,89 @@
+{
+  "scholarUrl": "https://scholar.google.com/citations?user=zMhLeaoAAAAJ",
+  "entries": [
+    {
+      "id": "itc-2024-synthetic-pcm",
+      "match": {
+        "titleIncludes": "Generation and Quality Evaluation of Synthetic Process Control Monitoring Data"
+      },
+      "order": 1,
+      "highlight": true,
+      "badge": "Best Paper Honorable Mention",
+      "note": "First author. Synthetic process control monitoring data for semiconductor manufacturing test."
+    },
+    {
+      "id": "walet-vts-2026",
+      "match": {
+        "titleIncludes": "WALET",
+        "year": 2026
+      },
+      "order": 2,
+      "highlight": true,
+      "note": "SHAP-guided classification of wafer-level e-test variability (explainable ML)."
+    },
+    {
+      "id": "vts-2025-metrology-etest",
+      "match": {
+        "titleIncludes": "Enhancing Metrology to E-test Correlation"
+      },
+      "order": 3,
+      "highlight": true,
+      "note": "Metrology-to-e-test correlation for semiconductor manufacturing test, integrating process expertise."
+    },
+    {
+      "id": "stamp-dac-2026",
+      "match": {
+        "titleIncludes": "STAMP",
+        "year": 2026
+      },
+      "order": 4,
+      "highlight": true,
+      "note": "Tool-chain attestation from wafer-level process monitoring."
+    },
+    {
+      "id": "icip-2022-mmwave",
+      "match": {
+        "titleIncludes": "Super Resolution",
+        "year": 2022
+      },
+      "order": 5,
+      "highlight": true,
+      "note": "CNN-based super-resolution for mmWave mobile radar imaging."
+    },
+    {
+      "id": "iccad-2025-mask",
+      "match": {
+        "titleIncludes": "Unveiling the Mask"
+      },
+      "order": 6,
+      "highlight": true,
+      "note": "Wafer-level mask-set attestation from process monitoring data."
+    },
+    {
+      "id": "beyond-monte-carlo-itc-2026",
+      "match": {
+        "titleIncludes": "Beyond Monte Carlo",
+        "year": 2026
+      },
+      "order": 7,
+      "highlight": true,
+      "note": "TODO: confirm the full title.",
+      "fallback": {
+        "title": "Beyond Monte Carlo... (full title TODO)",
+        "venue": "IEEE International Test Conference (ITC)",
+        "year": 2026
+      }
+    },
+    {
+      "id": "under-review-synthetic-etest",
+      "order": 8,
+      "highlight": false,
+      "note": "Synthetic data to improve prediction of wafer e-test results from inline measurements. Listed without a title while the manuscript is under review.",
+      "fallback": {
+        "title": "Under review",
+        "venue": "",
+        "year": null
+      }
+    }
+  ]
+}

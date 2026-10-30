@@ -1,0 +1,127 @@
+{
+  "sources": {
+    "dblpPid": "339/2053",
+    "semanticScholarAuthorId": "2189908711"
+  },
+  "papers": [
+    {
+      "id": "doi:10.1145/3770743.3804428",
+      "title": "STAMP: Semiconductor Tool-chain Attestation through Wafer-Level Machine Learning-based Process Monitoring",
+      "year": 2026,
+      "venue": "Proceedings of the 63rd ACM/IEEE Design Automation Conference",
+      "authors": [
+        "S. Tellakula",
+        "Ching-Yi Chang",
+        "Matthew Nigh",
+        "J. Carulli",
+        "Yiorgos Makris"
+      ],
+      "doi": "10.1145/3770743.3804428",
+      "url": "https://doi.org/10.1145/3770743.3804428",
+      "semanticScholarId": "79e3da1faadd75c1cb1a607a501d0ba801eec929",
+      "semanticScholarUrl": "https://www.semanticscholar.org/paper/79e3da1faadd75c1cb1a607a501d0ba801eec929",
+      "citationCount": 0,
+      "sources": ["semantic-scholar"]
+    },
+    {
+      "id": "doi:10.1109/vts69484.2026.11563333",
+      "title": "WALET: SHAP-Guided Classification of Wafer-Level E-Test Variability for Early Manufacturing Risk Detection",
+      "year": 2026,
+      "venue": "IEEE VLSI Test Symposium (VTS)",
+      "authors": [
+        "Ching-Yi Chang",
+        "Matthew Nigh",
+        "John M. Carulli",
+        "Yiorgos Makris"
+      ],
+      "doi": "10.1109/VTS69484.2026.11563333",
+      "url": "https://doi.org/10.1109/VTS69484.2026.11563333",
+      "dblpKey": "conf/vts/ChangNCM26",
+      "dblpUrl": "https://dblp.org/rec/conf/vts/ChangNCM26",
+      "semanticScholarId": "14afea53a060eafe40490931ce67dc212cb58f07",
+      "semanticScholarUrl": "https://www.semanticscholar.org/paper/14afea53a060eafe40490931ce67dc212cb58f07",
+      "citationCount": 0,
+      "sources": ["dblp", "semantic-scholar"]
+    },
+    {
+      "id": "doi:10.1109/vts65138.2025.11022777",
+      "title": "Enhancing Metrology to E-test Correlation Model Accuracy through Process Expertise Integration",
+      "year": 2025,
+      "venue": "IEEE VLSI Test Symposium (VTS)",
+      "authors": [
+        "Ching-Yi Chang",
+        "Matthew Nigh",
+        "John M. Carulli",
+        "Yiorgos Makris"
+      ],
+      "doi": "10.1109/VTS65138.2025.11022777",
+      "url": "https://doi.org/10.1109/VTS65138.2025.11022777",
+      "dblpKey": "conf/vts/ChangNCM25",
+      "dblpUrl": "https://dblp.org/rec/conf/vts/ChangNCM25",
+      "semanticScholarId": "23251e05a5e0e0f6aec360fd7e9763ecad6c2398",
+      "semanticScholarUrl": "https://www.semanticscholar.org/paper/23251e05a5e0e0f6aec360fd7e9763ecad6c2398",
+      "citationCount": 2,
+      "sources": ["dblp", "semantic-scholar"]
+    },
+    {
+      "id": "doi:10.1109/iccad66269.2025.11241009",
+      "title": "Unveiling the Mask: Trusted Semiconductor Manufacturing through Wafer-Level Mask-Set Attestation",
+      "year": 2025,
+      "venue": "IEEE/ACM International Conference on Computer-Aided Design (ICCAD)",
+      "authors": [
+        "Suraag Sunil Tellakula",
+        "Ching-Yi Chang",
+        "Matthew Nigh",
+        "Christos Vasileiou",
+        "John M. Carulli",
+        "Yiorgos Makris"
+      ],
+      "doi": "10.1109/ICCAD66269.2025.11241009",
+      "url": "https://doi.org/10.1109/ICCAD66269.2025.11241009",
+      "dblpKey": "conf/iccad/TellakulaCNVCM25",
+      "dblpUrl": "https://dblp.org/rec/conf/iccad/TellakulaCNVCM25",
+      "semanticScholarId": "5f287ce972cc5e048cfb15bbbad5d408a20e799e",
+      "semanticScholarUrl": "https://www.semanticscholar.org/paper/5f287ce972cc5e048cfb15bbbad5d408a20e799e",
+      "citationCount": 1,
+      "sources": ["dblp", "semantic-scholar"]
+    },
+    {
+      "id": "doi:10.1109/itc51657.2024.00042",
+      "title": "Generation and Quality Evaluation of Synthetic Process Control Monitoring Data",
+      "year": 2024,
+      "venue": "IEEE International Test Conference (ITC)",
+      "authors": ["Matthew Nigh", "John M. Carulli", "Yiorgos Makris"],
+      "doi": "10.1109/ITC51657.2024.00042",
+      "url": "https://doi.org/10.1109/ITC51657.2024.00042",
+      "dblpKey": "conf/itc/NighCM24",
+      "dblpUrl": "https://dblp.org/rec/conf/itc/NighCM24",
+      "semanticScholarId": "2748d97e55e5d87551f33fb689b81a6d7bdf9023",
+      "semanticScholarUrl": "https://www.semanticscholar.org/paper/2748d97e55e5d87551f33fb689b81a6d7bdf9023",
+      "citationCount": 0,
+      "sources": ["dblp", "semantic-scholar"]
+    },
+    {
+      "id": "doi:10.1109/icip46576.2022.9897190",
+      "title": "Efficient CNN-Based Super Resolution Algorithms for Mmwave Mobile Radar Imaging",
+      "year": 2022,
+      "venue": "IEEE International Conference on Image Processing (ICIP)",
+      "authors": [
+        "Christos Vasileiou",
+        "Josiah W. Smith",
+        "Shiva Thiagarajan",
+        "Matthew Nigh",
+        "Yiorgos Makris",
+        "Murat Torlak"
+      ],
+      "doi": "10.1109/ICIP46576.2022.9897190",
+      "url": "https://doi.org/10.1109/ICIP46576.2022.9897190",
+      "dblpKey": "conf/icip/VasileiouSTNMT22",
+      "dblpUrl": "https://dblp.org/rec/conf/icip/VasileiouSTNMT22",
+      "semanticScholarId": "b2b5fa805b8a8f35e6e2c47d020eeb7a0a328379",
+      "semanticScholarUrl": "https://www.semanticscholar.org/paper/b2b5fa805b8a8f35e6e2c47d020eeb7a0a328379",
+      "arxivId": "2305.02092",
+      "citationCount": 30,
+      "sources": ["dblp", "semantic-scholar"]
+    }
+  ]
+}
