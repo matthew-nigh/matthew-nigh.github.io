@@ -44,7 +44,7 @@ const CONFIG = {
         {
           title: 'NSTX-U vertical-position control',
           description:
-            'DOE SULI internship at Princeton Plasma Physics Laboratory: closed-loop vertical-position control modeling for the NSTX-U tokamak, plus plasma simulation and data analysis. The longer-term interest is machine learning for plasma control, fusion diagnostics, and fusion data analysis.',
+            'DOE SULI internship at Princeton Plasma Physics Laboratory (Summer 2020): closed-loop vertical-position control modeling for the NSTX-U tokamak, plus plasma simulation and data analysis. The longer-term interest is machine learning for plasma control, fusion diagnostics, and fusion data analysis.',
           link: '',
         },
         {
@@ -150,10 +150,9 @@ const CONFIG = {
         'Machine learning pipelines on large wafer test datasets for yield analytics.',
     },
     {
-      // TODO: confirm PPPL dates (Summer 2020 vs Summer 2021). Shown as Summer 2021.
       company: 'Princeton Plasma Physics Laboratory',
       position: 'Lab Research Intern, DOE SULI',
-      from: 'Summer 2021',
+      from: 'Summer 2020',
       to: '',
       companyLink: 'https://www.pppl.gov/',
       description:
