@@ -96,7 +96,10 @@ export const getSanitizedConfig = (
             experience.company ||
             experience.position ||
             experience.from ||
-            experience.to,
+            experience.to ||
+            (Array.isArray(experience.description)
+              ? experience.description.length > 0
+              : experience.description),
         ) || [],
       certifications:
         config?.certifications?.filter(

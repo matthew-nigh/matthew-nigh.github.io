@@ -221,7 +221,7 @@ interface Experience {
   from: string;
   to: string;
   companyLink?: string;
-  description?: string;
+  description?: string | string[];
 }
 
 interface ProfileOverride {

@@ -14,7 +14,7 @@ const CONFIG = {
     headline:
       'Synthetic data and machine learning for scientific and manufacturing systems: semiconductors, fusion, and radar.',
     about:
-      "Matthew Nigh is a Computer Engineering PhD candidate at UC San Diego (expected June 2027), with an MS from UT Dallas (2023) and a BS in Electrical Engineering from UW-Platteville (2021). His research develops synthetic data and machine learning for scientific and manufacturing systems. His interests span semiconductor test, fusion, and radar imaging. He's seeking ML research and applied data science roles starting mid-2027.",
+      'Matthew Nigh received his B.S. in Electrical Engineering, summa cum laude, from the University of Wisconsin–Platteville in 2021 and his M.S. in Computer Engineering from the University of Texas at Dallas in 2023. He is pursuing his Ph.D. in Computer Engineering at the University of California San Diego. His research emphasizes the generation and evaluation of synthetic data using classical machine learning and contemporary deep learning methods. His work spans semiconductor manufacturing, signal processing, and radar imaging for academic and commercial applications.',
     location: 'La Jolla / San Diego, CA',
     avatar: '/avatar.png',
   },
@@ -41,7 +41,7 @@ const CONFIG = {
         'In UC San Diego’s TRELA Lab with advisor Yiorgos Makris: synthetic process data, wafer testing, and manufacturing attestation.',
       projects: [
         {
-          title: 'Synthetic PCM Data and WAT Limit Setting',
+          title: 'Synthetic Data',
           description:
             'Synthetic process control monitoring data validated with E-test data from approximately 8,000 wafers in an advanced GlobalFoundries FinFET node (ITC 2024, Best Paper Honorable Mention). Extends to correlation-aware WAT limit setting (ITC 2026).',
           link: '',
@@ -49,7 +49,7 @@ const CONFIG = {
         {
           title: 'Metrology-to-E-Test Correlation',
           description:
-            'Metrology-to-e-test correlation modeling that integrates process expertise (VTS 2025).',
+            'Metrology-to-e-test correlation modeling integrates process expertise (VTS 2025, “Enhancing Metrology to E-test Correlation Model Accuracy through Process Expertise Integration”) and uses synthetic data to improve prediction of wafer e-test results from inline measurements.',
           link: '',
         },
         {
@@ -59,9 +59,9 @@ const CONFIG = {
           link: '',
         },
         {
-          title: 'STAMP: Tool-Chain Attestation',
+          title: 'Provenance Attestation',
           description:
-            'Tool-chain attestation demonstrated on inline and e-test measurements from 7,000 wafers, with multiple tool-chain variants in 12nm FinFET technology (DAC 2026).',
+            'Manufacturing provenance through wafer-level mask-set attestation (Unveiling the Mask, ICCAD 2025) and tool-chain attestation (STAMP, DAC 2026). STAMP demonstrated tool-chain attestation on inline and e-test measurements from 7,000 wafers, with multiple tool-chain variants in 12nm FinFET technology.',
           link: '',
         },
       ],
@@ -136,8 +136,11 @@ const CONFIG = {
       from: '2021',
       to: 'Present',
       companyLink: 'https://ucsd.edu',
-      description:
-        'Developed synthetic process monitoring data methods recognized with an ITC 2024 Best Paper Honorable Mention.',
+      description: [
+        'Built correlation-aware synthetic PCM/WAT data generators. On a GlobalFoundries 12LP FinFET process, limits set from the synthetic data contained 98.7% of real wafers, versus 10.3% for Monte Carlo (ITC 2026).',
+        'Developed statistical quality metrics for synthetic semiconductor test data across about 8K advanced-node wafers (ITC 2024, Best Paper Honorable Mention).',
+        'Co-developed explainable ML for early manufacturing risk detection: a SHAP-guided XGBoost classifier on 5,274 FinFET wafers (VTS 2026), plus wafer-level mask-set and tool-chain attestation (ICCAD 2025, DAC 2026).',
+      ],
     },
     {
       company: 'KBR',
@@ -145,8 +148,11 @@ const CONFIG = {
       from: 'May 2024',
       to: 'Present',
       companyLink: 'https://www.kbr.com/',
-      description:
-        'Applied complex-valued neural networks to synthetic aperture radar imaging.',
+      description: [
+        'Designed complex-valued neural networks for synthetic aperture radar (SAR) scene and target analysis.',
+        'Built domain-specific SAR foundation models, training on a public dataset of about 23 TB (about 69 million image chips).',
+        'Ran cloud ML training on AWS, cutting training costs by up to 75%.',
+      ],
     },
     {
       company: 'Advantest America',
@@ -154,8 +160,10 @@ const CONFIG = {
       from: 'Summer 2022',
       to: '',
       companyLink: 'https://www.advantest.com/',
-      description:
-        'Built machine learning pipelines for wafer-test yield analytics.',
+      description: [
+        'Processed large wafer measurement datasets for ML model ingestion, with time- and memory-efficient handling of large files.',
+        'Proposed MLOps improvements for Advantest Cloud Solutions AI pipelines.',
+      ],
     },
     {
       company: 'Princeton Plasma Physics Laboratory',
@@ -163,8 +171,10 @@ const CONFIG = {
       from: 'Summer 2020',
       to: '',
       companyLink: 'https://www.pppl.gov/',
-      description:
-        'Modeled closed-loop vertical-position control for the NSTX-U tokamak through DOE SULI.',
+      description: [
+        'Built a Simulink closed-loop model of real-time vertical position control for the NSTX-U tokamak.',
+        'Added power-supply dynamics to measure how they limit vertical-instability control and plasma elongation, and built MATLAB plasma measurement databases for instability analysis.',
+      ],
     },
   ],
   certifications: [],

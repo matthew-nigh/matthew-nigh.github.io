@@ -1,8 +1,12 @@
 import { FALLBACK_IMAGE } from '../../constants';
 import { Profile } from '../../interfaces/profile';
 import { skeleton } from '../../utils';
+import ThemeChanger from '../theme-changer';
 
 interface AvatarCardProps {
+  theme: string;
+  setTheme: (theme: string) => void;
+  disableThemeSwitch: boolean;
   profile: Profile | null;
   loading: boolean;
   avatarRing: boolean;
@@ -18,13 +22,21 @@ interface AvatarCardProps {
  * @returns JSX element representing the AvatarCard.
  */
 const AvatarCard: React.FC<AvatarCardProps> = ({
+  theme,
+  setTheme,
+  disableThemeSwitch,
   profile,
   loading,
   avatarRing,
   resumeFileUrl,
 }): JSX.Element => {
   return (
-    <div className="card shadow-lg compact bg-base-100">
+    <div className="card relative shadow-lg compact bg-base-100">
+      {!disableThemeSwitch && (
+        <div className="absolute top-2 right-2 z-10">
+          <ThemeChanger theme={theme} setTheme={setTheme} />
+        </div>
+      )}
       <div className="grid place-items-center py-8">
         {loading || !profile ? (
           <div className="avatar opacity-90">

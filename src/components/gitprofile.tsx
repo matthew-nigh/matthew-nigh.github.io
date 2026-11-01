@@ -15,7 +15,6 @@ import { SanitizedConfig } from '../interfaces/sanitized-config';
 import ErrorPage from './error-page';
 import HeadTagEditor from './head-tag-editor';
 import { DEFAULT_THEMES } from '../constants/default-themes';
-import ThemeChanger from './theme-changer';
 import { BG_COLOR } from '../constants';
 import AvatarCard from './avatar-card';
 import { Profile } from '../interfaces/profile';
@@ -213,15 +212,15 @@ const GitProfile = ({ config }: { config: Config }) => {
               appliedTheme={theme}
             />
             <div className={`p-4 lg:p-10 min-h-full ${BG_COLOR}`}>
-              {!sanitizedConfig.themeConfig.disableSwitch && (
-                <div className="flex justify-end mb-4">
-                  <ThemeChanger theme={theme} setTheme={setTheme} />
-                </div>
-              )}
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 rounded-box">
                 <div className="col-span-1">
                   <div className="grid grid-cols-1 gap-6">
                     <AvatarCard
+                      theme={theme}
+                      setTheme={setTheme}
+                      disableThemeSwitch={
+                        sanitizedConfig.themeConfig.disableSwitch
+                      }
                       profile={profile}
                       loading={loading}
                       avatarRing={sanitizedConfig.themeConfig.displayAvatarRing}
