@@ -213,17 +213,14 @@ const GitProfile = ({ config }: { config: Config }) => {
               appliedTheme={theme}
             />
             <div className={`p-4 lg:p-10 min-h-full ${BG_COLOR}`}>
+              {!sanitizedConfig.themeConfig.disableSwitch && (
+                <div className="flex justify-end mb-4">
+                  <ThemeChanger theme={theme} setTheme={setTheme} />
+                </div>
+              )}
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 rounded-box">
                 <div className="col-span-1">
                   <div className="grid grid-cols-1 gap-6">
-                    {!sanitizedConfig.themeConfig.disableSwitch && (
-                      <ThemeChanger
-                        theme={theme}
-                        setTheme={setTheme}
-                        loading={loading}
-                        themeConfig={sanitizedConfig.themeConfig}
-                      />
-                    )}
                     <AvatarCard
                       profile={profile}
                       loading={loading}

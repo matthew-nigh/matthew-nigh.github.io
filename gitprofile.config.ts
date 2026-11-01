@@ -12,9 +12,9 @@ const CONFIG = {
   profile: {
     name: 'Matthew Nigh',
     headline:
-      'ML and synthetic data for semiconductor manufacturing and physical systems.',
+      'Synthetic data and machine learning for scientific and manufacturing systems: semiconductors, fusion, and radar.',
     about:
-      "Matthew Nigh is a PhD candidate in Computer Engineering at UC San Diego (expected June 2027), in the TRELA Lab advised by Yiorgos Makris. He earned an MS from the University of Texas at Dallas (2023) and a BS in Electrical Engineering from the University of Wisconsin-Platteville (2021). He builds machine learning and synthetic data for semiconductor manufacturing and physical systems, including synthetic process control monitoring data, wafer acceptance test limit setting, metrology-to-e-test correlation, and SHAP-guided classification of wafer-level e-test variability. A longer-term interest is machine learning for plasma control, fusion diagnostics, and fusion data analysis. In Summer 2020 he was a DOE SULI intern at Princeton Plasma Physics Laboratory, working on closed-loop vertical-position control modeling for the NSTX-U tokamak. He's looking for ML research and applied data science roles in advanced manufacturing, national labs, and fusion energy, starting mid-2027.",
+      "Matthew Nigh is a Computer Engineering PhD candidate at UC San Diego (expected June 2027), with an MS from UT Dallas (2023) and a BS in Electrical Engineering from UW-Platteville (2021). His research develops synthetic data and machine learning for scientific and manufacturing systems. His interests span semiconductor test, fusion, and radar imaging. He's seeking ML research and applied data science roles starting mid-2027.",
     location: 'La Jolla / San Diego, CA',
     avatar: '/avatar.png',
   },
@@ -38,46 +38,39 @@ const CONFIG = {
     external: {
       header: 'Research',
       intro:
-        'PhD research in the TRELA Lab at UC San Diego with advisor Yiorgos Makris, centered on machine learning and synthetic data for semiconductor manufacturing and physical systems. A longer-term interest is plasma control, fusion diagnostics, and fusion data analysis.',
+        'In UC San Diego’s TRELA Lab with advisor Yiorgos Makris: synthetic process data, wafer testing, and manufacturing attestation.',
       projects: [
         {
-          title: 'Synthetic PCM data and WAT limit setting',
+          title: 'Synthetic PCM Data and WAT Limit Setting',
           description:
-            'Synthetic data generation for process control monitoring data and wafer acceptance test (WAT) limit setting. Generation and Quality Evaluation of Synthetic Process Control Monitoring Data (ITC 2024, Best Paper Honorable Mention). Beyond Monte Carlo: Improved Wafer Acceptance Test (WAT) Limit Setting via Correlation-Aware Synthetic Data Generation (ITC 2026).',
+            'Synthetic process control monitoring data validated with E-test data from approximately 8,000 wafers in an advanced GlobalFoundries FinFET node (ITC 2024, Best Paper Honorable Mention). Extends to correlation-aware WAT limit setting (ITC 2026).',
           link: '',
         },
         {
-          title: 'Metrology-to-e-test correlation',
+          title: 'Metrology-to-E-Test Correlation',
           description:
             'Metrology-to-e-test correlation modeling that integrates process expertise (VTS 2025).',
           link: '',
         },
         {
-          title: 'WALET: e-test variability',
+          title: 'WALET: E-Test Variability',
           description:
             'SHAP-guided classification of wafer-level e-test variability (WALET, VTS 2026).',
           link: '',
         },
         {
-          title: 'STAMP: tool-chain attestation',
+          title: 'STAMP: Tool-Chain Attestation',
           description:
-            'Tool-chain attestation from wafer-level process monitoring (STAMP, DAC 2026).',
-          link: '',
-        },
-        {
-          title: 'Internships',
-          description:
-            'Side work, with roles and dates under Experience: synthetic aperture radar imaging at KBR (May 2024–present), wafer-test yield analytics at Advantest America (Summer 2022), and NSTX-U vertical-position control modeling at Princeton Plasma Physics Laboratory (Summer 2020).',
+            'Tool-chain attestation demonstrated on inline and e-test measurements from 7,000 wafers, with multiple tool-chain variants in 12nm FinFET technology (DAC 2026).',
           link: '',
         },
       ],
     },
   },
   seo: {
-    title:
-      'Matthew Nigh | ML and Synthetic Data for Semiconductor Manufacturing',
+    title: 'Matthew Nigh | Synthetic Data and Machine Learning',
     description:
-      'Matthew Nigh is a Computer Engineering PhD student at UC San Diego. He builds machine learning and synthetic data for semiconductor manufacturing and physical systems.',
+      'Matthew Nigh develops synthetic data and machine learning for scientific and manufacturing systems: semiconductors, fusion, and radar. Computer Engineering PhD candidate at UC San Diego.',
     imageURL: 'https://matthew-nigh.github.io/og-image.png',
     siteUrl: 'https://matthew-nigh.github.io/',
   },
@@ -86,7 +79,7 @@ const CONFIG = {
     '@type': 'Person',
     name: 'Matthew Nigh',
     description:
-      'Matthew Nigh is a Computer Engineering PhD student at UC San Diego. He builds machine learning and synthetic data for semiconductor manufacturing and physical systems.',
+      'Matthew Nigh develops synthetic data and machine learning for scientific and manufacturing systems: semiconductors, fusion, and radar. Computer Engineering PhD candidate at UC San Diego.',
     url: 'https://matthew-nigh.github.io/',
     image: 'https://matthew-nigh.github.io/avatar.png',
     email: 'mnigh@ucsd.edu',
@@ -144,7 +137,7 @@ const CONFIG = {
       to: 'Present',
       companyLink: 'https://ucsd.edu',
       description:
-        'Synthetic data for process control monitoring and WAT limit setting, metrology-to-e-test correlation, SHAP-guided wafer-level e-test variability, and tool-chain attestation from wafer-level process monitoring.',
+        'Developed synthetic process monitoring data methods recognized with an ITC 2024 Best Paper Honorable Mention.',
     },
     {
       company: 'KBR',
@@ -153,7 +146,7 @@ const CONFIG = {
       to: 'Present',
       companyLink: 'https://www.kbr.com/',
       description:
-        'Synthetic aperture radar imaging with complex-valued neural networks and AWS cloud training.',
+        'Applied complex-valued neural networks to synthetic aperture radar imaging.',
     },
     {
       company: 'Advantest America',
@@ -162,7 +155,7 @@ const CONFIG = {
       to: '',
       companyLink: 'https://www.advantest.com/',
       description:
-        'Machine learning pipelines on large wafer test datasets for yield analytics.',
+        'Built machine learning pipelines for wafer-test yield analytics.',
     },
     {
       company: 'Princeton Plasma Physics Laboratory',
@@ -171,7 +164,7 @@ const CONFIG = {
       to: '',
       companyLink: 'https://www.pppl.gov/',
       description:
-        'Plasma simulation and data analysis, including closed-loop vertical-position control modeling for the NSTX-U tokamak.',
+        'Modeled closed-loop vertical-position control for the NSTX-U tokamak through DOE SULI.',
     },
   ],
   certifications: [],
@@ -212,39 +205,13 @@ const CONFIG = {
     snippetVersion: 6,
   },
   themeConfig: {
-    // Forest is the first-visit default. It is also first in `themes`, which
-    // DaisyUI compiles as the :root theme. respectPrefersColorScheme stays
-    // false so a system light/dark preference does not replace Forest.
-    // localStorage is written only after the visitor picks a theme.
-    defaultTheme: 'forest',
+    // Night is the first-visit default, independent of system preference.
+    // The sun/moon toggle persists an explicit night/nord choice locally.
+    defaultTheme: 'night',
     disableSwitch: false,
     respectPrefersColorScheme: false,
     displayAvatarRing: true,
-    themes: [
-      'forest',
-      'light',
-      'dark',
-      'emerald',
-      'corporate',
-      'synthwave',
-      'halloween',
-      'Luxury',
-      'business',
-      'night',
-      'dim',
-      'nord',
-      'sunset',
-      'procyon',
-    ],
-    customTheme: {
-      primary: '#ff944d',
-      secondary: '#219aaf',
-      accent: '#0066ff',
-      neutral: '#efedf4',
-      'base-100': '#08252b',
-      '--rounded-box': '3rem',
-      '--rounded-btn': '3rem',
-    },
+    themes: ['night', 'nord'],
   },
   footer: `© 2026 Matthew Nigh`,
   enablePWA: false,

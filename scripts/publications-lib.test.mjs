@@ -243,3 +243,44 @@ test('the updater may only write publications.json', () => {
     assertSafeOutput('/tmp/src/data/publication-overrides.json'),
   );
 });
+
+// Exercise the actual TypeScript view builder after an abbreviated catalog refresh.
+async function loadPublicationView() {
+  const { transpileModule, ModuleKind } = (await import('typescript')).default;
+  const source = fs.readFileSync(
+    new URL('../src/utils/publications.ts', import.meta.url), 'utf8',
+  );
+  const { outputText } = transpileModule(source, {
+    compilerOptions: { module: ModuleKind.CommonJS, esModuleInterop: true },
+  });
+  const exports = {};
+  const requireJson = (name) => JSON.parse(fs.readFileSync(
+    new URL(`../src/data/${name.split('/').pop()}`, import.meta.url), 'utf8',
+  ));
+  new Function('require', 'exports', outputText)(requireJson, exports);
+  return exports;
+}
+
+test('display overrides survive catalog merges and omit citation metadata', async () => {
+  const { buildPublicationView, publicationView } = await loadPublicationView();
+  const overrides = JSON.parse(fs.readFileSync(
+    new URL('../src/data/publication-overrides.json', import.meta.url), 'utf8',
+  ));
+  const beyond = overrides.entries.find(e => e.id === 'beyond-monte-carlo-itc-2026');
+  const stamp = overrides.entries.find(e => e.id === 'stamp-dac-2026');
+  const refreshed = mergeCatalog([], [
+    { title: beyond.fallback.title, year: 2026, authors: ['M. Nigh'], doi: '10.example/unverified', citationCount: 99 },
+    { title: 'STAMP: Semiconductor Tool-chain Attestation', year: 2026, authors: ['S. Tellakula', 'J. Carulli'], citationCount: 100 },
+  ]);
+  const view = buildPublicationView({ papers: refreshed }, overrides);
+  assert.deepEqual(view.papers[0].authors, stamp.authors);
+  assert.deepEqual(view.papers[1].authors, beyond.authors);
+  assert.equal(view.papers[1].link, 'https://easychair.org/smart-program/ITC2026/');
+  const fallback = buildPublicationView({ papers: [] }, overrides).papers[0];
+  assert.deepEqual(fallback.authors, beyond.authors);
+  for (const paper of [...view.papers, ...publicationView.papers]) {
+    assert.equal('citationCount' in paper, false);
+    assert.equal(paper.badges.includes('Most cited'), false);
+    assert.notEqual(paper.title, 'Under review');
+  }
+});
