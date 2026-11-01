@@ -66,19 +66,21 @@ const PublicationCard = ({
                       {[item.venue, item.year].filter(Boolean).join(' ')}
                     </p>
                   )}
-                  {item.authors && (
+                  {item.authors.length > 0 && (
                     <p className="text-base-content opacity-50 text-sm">
-                      Authors: {item.authors}
+                      Authors:{' '}
+                      {item.authors.map((author, index) => (
+                        <Fragment key={`${author}-${index}`}>
+                          {index > 0 && ', '}
+                          {author === 'Matthew Nigh' ? (
+                            <strong>{author}</strong>
+                          ) : (
+                            author
+                          )}
+                        </Fragment>
+                      ))}
                     </p>
                   )}
-                  {typeof item.citationCount === 'number' &&
-                    item.citationCount > 0 && (
-                      <p className="text-base-content opacity-50 text-sm">
-                        {item.citationCount === 1
-                          ? '1 citation'
-                          : `${item.citationCount} citations`}
-                      </p>
-                    )}
                   {item.description && (
                     <p className="mt-2 text-base-content text-opacity-60 text-sm text-justify">
                       {item.description}

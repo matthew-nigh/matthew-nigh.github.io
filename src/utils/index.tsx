@@ -1,5 +1,4 @@
 import { LOCAL_STORAGE_KEY_NAME } from '../constants';
-import { DEFAULT_CUSTOM_THEME } from '../constants/default-custom-theme';
 import { DEFAULT_THEMES } from '../constants/default-themes';
 import {
   SanitizedConfig,
@@ -10,9 +9,7 @@ import { hotjar } from 'react-hotjar';
 import colors from '../data/colors.json';
 
 export const isDarkishTheme = (appliedTheme: string): boolean => {
-  return ['dark', 'halloween', 'forest', 'black', 'luxury', 'dracula'].includes(
-    appliedTheme,
-  );
+  return appliedTheme === 'night';
 };
 
 type EventParams = {
@@ -99,7 +96,10 @@ export const getSanitizedConfig = (
             experience.company ||
             experience.position ||
             experience.from ||
-            experience.to,
+            experience.to ||
+            (Array.isArray(experience.description)
+              ? experience.description.length > 0
+              : experience.description),
         ) || [],
       certifications:
         config?.certifications?.filter(
@@ -131,29 +131,6 @@ export const getSanitizedConfig = (
           config?.themeConfig?.respectPrefersColorScheme || false,
         displayAvatarRing: config?.themeConfig?.displayAvatarRing ?? true,
         themes: config?.themeConfig?.themes || DEFAULT_THEMES,
-        customTheme: {
-          primary:
-            config?.themeConfig?.customTheme?.primary ||
-            DEFAULT_CUSTOM_THEME.primary,
-          secondary:
-            config?.themeConfig?.customTheme?.secondary ||
-            DEFAULT_CUSTOM_THEME.secondary,
-          accent:
-            config?.themeConfig?.customTheme?.accent ||
-            DEFAULT_CUSTOM_THEME.accent,
-          neutral:
-            config?.themeConfig?.customTheme?.neutral ||
-            DEFAULT_CUSTOM_THEME.neutral,
-          'base-100':
-            config?.themeConfig?.customTheme?.['base-100'] ||
-            DEFAULT_CUSTOM_THEME['base-100'],
-          '--rounded-box':
-            config?.themeConfig?.customTheme?.['--rounded-box'] ||
-            DEFAULT_CUSTOM_THEME['--rounded-box'],
-          '--rounded-btn':
-            config?.themeConfig?.customTheme?.['--rounded-btn'] ||
-            DEFAULT_CUSTOM_THEME['--rounded-btn'],
-        },
       },
       footer: config?.footer,
       enablePWA: config?.enablePWA ?? true,

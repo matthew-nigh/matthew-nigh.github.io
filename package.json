@@ -85,5 +85,8 @@
     "vite-portfolio",
     "academic-portfolio",
     "github-api"
-  ]
+  ],
+  "allowScripts": {
+    "esbuild@0.19.11": true
+  }
 }

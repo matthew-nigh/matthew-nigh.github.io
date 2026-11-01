@@ -20,11 +20,15 @@ interface MatchRule {
 interface OverrideEntry {
   id: string;
   match?: MatchRule;
+  authors?: string[];
+  omitDoi?: boolean;
+  url?: string;
   order?: number;
   highlight?: boolean;
   badge?: string;
   note?: string;
   fallback?: {
+    authors?: string[];
     title: string;
     venue?: string;
     year?: number | null;
@@ -46,11 +50,10 @@ export interface PublicationView {
   title: string;
   venue: string;
   year: number | null;
-  authors: string;
+  authors: string[];
   link: string;
   description: string;
   badges: string[];
-  citationCount: number | null;
   order: number | null;
 }
 
@@ -97,15 +100,18 @@ export const buildPublicationView = (
     if (entry) used.add(entry.id);
     return {
       id: paper.id,
-      title: paper.title,
+      title: paper.title.replace(/mmwave/gi, 'mmWave'),
       venue: paper.venue || '',
       year: paper.year ?? null,
-      authors: (paper.authors || []).join(', '),
-      link: paper.url || scholarUrl,
+      authors: entry?.authors || paper.authors || [],
+      link:
+        entry?.url ||
+        (entry?.omitDoi && /doi\.org/i.test(paper.url || '')
+          ? scholarUrl
+          : paper.url) ||
+        scholarUrl,
       description: entry?.note || '',
       badges: entry?.badge ? [entry.badge] : [],
-      citationCount:
-        typeof paper.citationCount === 'number' ? paper.citationCount : null,
       order: entry?.order ?? null,
     };
   });
@@ -117,30 +123,13 @@ export const buildPublicationView = (
       title: entry.fallback.title,
       venue: entry.fallback.venue || '',
       year: entry.fallback.year ?? null,
-      authors: '',
-      link: entry.fallback.url || scholarUrl,
+      authors: entry.authors || entry.fallback.authors || [],
+      link: entry.url || entry.fallback.url || scholarUrl,
       description: entry.note || '',
       badges: entry.badge ? [entry.badge] : [],
-      citationCount: null,
       order: entry.order ?? null,
     });
   });
-
-  const mostCited = cards.reduce((max, card) => {
-    if (card.citationCount && card.citationCount > max)
-      return card.citationCount;
-    return max;
-  }, 0);
-  if (mostCited > 0) {
-    cards.forEach((card) => {
-      if (
-        card.citationCount === mostCited &&
-        !card.badges.includes('Most cited')
-      ) {
-        card.badges.push('Most cited');
-      }
-    });
-  }
 
   cards.sort((left, right) => {
     const orderDelta = (left.order ?? 10000) - (right.order ?? 10000);

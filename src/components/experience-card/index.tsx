@@ -13,7 +13,7 @@ const ListItem = ({
   position?: React.ReactNode;
   company?: React.ReactNode;
   companyLink?: string;
-  description?: string;
+  description?: string | string[];
 }) => (
   <li className="mb-5 ml-4">
     <div
@@ -30,7 +30,15 @@ const ListItem = ({
       ) : (
         <span>{company}</span>
       )}
-      {description ? <p className="mt-1 text-sm">{description}</p> : null}
+      {Array.isArray(description) ? (
+        <ul className="mt-1 ml-4 list-disc space-y-1 text-sm">
+          {description.map((bullet, index) => (
+            <li key={index}>{bullet}</li>
+          ))}
+        </ul>
+      ) : description ? (
+        <p className="mt-1 text-sm">{description}</p>
+      ) : null}
     </div>
   </li>
 );

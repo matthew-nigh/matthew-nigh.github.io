@@ -38,7 +38,14 @@
       },
       "order": 4,
       "highlight": true,
-      "note": "Tool-chain attestation from wafer-level process monitoring."
+      "note": "Tool-chain attestation from wafer-level process monitoring.",
+      "authors": [
+        "Suraag Sunil Tellakula",
+        "Ching-Yi Chang",
+        "Matthew Nigh",
+        "John M. Carulli",
+        "Yiorgos Makris"
+      ]
     },
     {
       "id": "icip-2022-mmwave",
@@ -71,19 +78,27 @@
       "fallback": {
         "title": "Beyond Monte Carlo: Improved Wafer Acceptance Test (WAT) Limit Setting via Correlation-Aware Synthetic Data Generation",
         "venue": "IEEE International Test Conference (ITC)",
-        "year": 2026
-      }
-    },
-    {
-      "id": "under-review-synthetic-etest",
-      "order": 8,
-      "highlight": false,
-      "note": "Synthetic data to improve prediction of wafer e-test results from inline measurements. Listed without a title while the manuscript is under review.",
-      "fallback": {
-        "title": "Under review",
-        "venue": "",
-        "year": null
-      }
+        "year": 2026,
+        "authors": [
+          "Matthew Nigh",
+          "Aric Fowler",
+          "Gabrielle Geppert",
+          "Ching-Yi Chang",
+          "John Carulli",
+          "Yiorgos Makris"
+        ],
+        "url": "https://easychair.org/smart-program/ITC2026/"
+      },
+      "authors": [
+        "Matthew Nigh",
+        "Aric Fowler",
+        "Gabrielle Geppert",
+        "Ching-Yi Chang",
+        "John Carulli",
+        "Yiorgos Makris"
+      ],
+      "omitDoi": true,
+      "url": "https://easychair.org/smart-program/ITC2026/"
     }
   ]
 }
