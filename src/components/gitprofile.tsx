@@ -43,7 +43,11 @@ const GitProfile = ({ config }: { config: Config }) => {
   const [sanitizedConfig] = useState<SanitizedConfig | Record<string, never>>(
     getSanitizedConfig(config),
   );
-  const [theme, setTheme] = useState<string>(DEFAULT_THEMES[0]);
+  const [theme, setTheme] = useState<string>(() =>
+    Object.keys(sanitizedConfig).length === 0
+      ? DEFAULT_THEMES[0]
+      : getInitialTheme(sanitizedConfig.themeConfig),
+  );
   const [error, setError] = useState<CustomError | null>(null);
   const hasLocalProfile = Boolean(sanitizedConfig.profile?.name);
   const [loading, setLoading] = useState<boolean>(!hasLocalProfile);

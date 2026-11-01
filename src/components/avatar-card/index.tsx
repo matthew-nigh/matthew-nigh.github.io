@@ -48,7 +48,6 @@ const AvatarCard: React.FC<AvatarCardProps> = ({
               <img
                 src={profile.avatar ? profile.avatar : FALLBACK_IMAGE}
                 alt={profile.name}
-                title="TODO: replace with a photo"
               />
             </div>
           </div>

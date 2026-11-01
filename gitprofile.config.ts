@@ -12,12 +12,11 @@ const CONFIG = {
   profile: {
     name: 'Matthew Nigh',
     headline:
-      'ML for physical-system data: fusion, semiconductor manufacturing, and radar imaging.',
+      'ML and synthetic data for semiconductor manufacturing and physical systems.',
     about:
-      "Matthew Nigh is a Computer Engineering PhD candidate at UC San Diego (TRELA Lab, advised by Yiorgos Makris), graduating June 2027. He builds machine learning for complex physical-system data: synthetic data and variability analysis for semiconductor manufacturing test, and, as a DOE SULI intern at Princeton Plasma Physics Laboratory, closed-loop vertical-position control modeling for the NSTX-U tokamak. He's looking for ML research and applied data science roles in fusion energy, national labs, and advanced manufacturing, starting mid-2027.",
+      "Matthew Nigh is a PhD candidate in Computer Engineering at UC San Diego (expected June 2027), in the TRELA Lab advised by Yiorgos Makris. He earned an MS from the University of Texas at Dallas (2023) and a BS in Electrical Engineering from the University of Wisconsin-Platteville (2021). He builds machine learning and synthetic data for semiconductor manufacturing and physical systems, including synthetic process control monitoring data, wafer acceptance test limit setting, metrology-to-e-test correlation, and SHAP-guided classification of wafer-level e-test variability. A longer-term interest is machine learning for plasma control, fusion diagnostics, and fusion data analysis. In Summer 2020 he was a DOE SULI intern at Princeton Plasma Physics Laboratory, working on closed-loop vertical-position control modeling for the NSTX-U tokamak. He's looking for ML research and applied data science roles in advanced manufacturing, national labs, and fusion energy, starting mid-2027.",
     location: 'La Jolla / San Diego, CA',
-    // TODO: replace the initials image with a photo.
-    avatar: '/avatar.svg',
+    avatar: '/avatar.png',
   },
   projects: {
     github: {
@@ -39,24 +38,36 @@ const CONFIG = {
     external: {
       header: 'Research',
       intro:
-        'Machine learning for physical-system data: synthetic data and explainable ML for semiconductor manufacturing test, yield analytics on wafer measurements, and deep learning for radar imaging. A longer-term interest is plasma control, fusion diagnostics, and fusion data analysis.',
+        'PhD research in the TRELA Lab at UC San Diego with advisor Yiorgos Makris, centered on machine learning and synthetic data for semiconductor manufacturing and physical systems. A longer-term interest is plasma control, fusion diagnostics, and fusion data analysis.',
       projects: [
         {
-          title: 'NSTX-U vertical-position control',
+          title: 'Synthetic PCM data and WAT limit setting',
           description:
-            'DOE SULI internship at Princeton Plasma Physics Laboratory (Summer 2020): closed-loop vertical-position control modeling for the NSTX-U tokamak, plus plasma simulation and data analysis. The longer-term interest is machine learning for plasma control, fusion diagnostics, and fusion data analysis.',
+            'Synthetic data generation for process control monitoring data and wafer acceptance test (WAT) limit setting. Generation and Quality Evaluation of Synthetic Process Control Monitoring Data (ITC 2024, Best Paper Honorable Mention). Beyond Monte Carlo: Improved Wafer Acceptance Test (WAT) Limit Setting via Correlation-Aware Synthetic Data Generation (ITC 2026).',
           link: '',
         },
         {
-          title: 'Wafer-data ML pipelines',
+          title: 'Metrology-to-e-test correlation',
           description:
-            'Machine Learning Engineering internship at Advantest America (Summer 2022): machine learning pipelines on large wafer test datasets for yield analytics.',
+            'Metrology-to-e-test correlation modeling that integrates process expertise (VTS 2025).',
           link: '',
         },
         {
-          title: 'SAR imaging',
+          title: 'WALET: e-test variability',
           description:
-            'AI/ML research internship at KBR (May 2024–present): synthetic aperture radar imaging with complex-valued neural networks and AWS cloud training.',
+            'SHAP-guided classification of wafer-level e-test variability (WALET, VTS 2026).',
+          link: '',
+        },
+        {
+          title: 'STAMP: tool-chain attestation',
+          description:
+            'Tool-chain attestation from wafer-level process monitoring (STAMP, DAC 2026).',
+          link: '',
+        },
+        {
+          title: 'Internships',
+          description:
+            'Side work, with roles and dates under Experience: synthetic aperture radar imaging at KBR (May 2024–present), wafer-test yield analytics at Advantest America (Summer 2022), and NSTX-U vertical-position control modeling at Princeton Plasma Physics Laboratory (Summer 2020).',
           link: '',
         },
       ],
@@ -64,9 +75,9 @@ const CONFIG = {
   },
   seo: {
     title:
-      'Matthew Nigh | ML for Fusion, Semiconductor Manufacturing &amp; Radar Imaging',
+      'Matthew Nigh | ML and Synthetic Data for Semiconductor Manufacturing',
     description:
-      'Matthew Nigh is a Computer Engineering PhD student at UC San Diego. He builds machine learning for fusion energy, semiconductor manufacturing and test, and radar imaging.',
+      'Matthew Nigh is a Computer Engineering PhD student at UC San Diego. He builds machine learning and synthetic data for semiconductor manufacturing and physical systems.',
     imageURL: 'https://matthew-nigh.github.io/og-image.png',
     siteUrl: 'https://matthew-nigh.github.io/',
   },
@@ -74,6 +85,8 @@ const CONFIG = {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: 'Matthew Nigh',
+    description:
+      'Matthew Nigh is a Computer Engineering PhD student at UC San Diego. He builds machine learning and synthetic data for semiconductor manufacturing and physical systems.',
     url: 'https://matthew-nigh.github.io/',
     image: 'https://matthew-nigh.github.io/avatar.png',
     email: 'mnigh@ucsd.edu',
@@ -109,8 +122,8 @@ const CONFIG = {
   },
   resume: {
     // Google Drive "anyone with the link can view" URL. The CV button opens it in a new tab.
-    // TODO: add the Drive CV URL.
-    fileUrl: 'TODO',
+    fileUrl:
+      'https://drive.google.com/file/d/1urxegCZj89JaH-PDFAz68vcfNfB-R2UO/view?usp=sharing',
   },
   skills: [
     'Python',
@@ -131,7 +144,7 @@ const CONFIG = {
       to: 'Present',
       companyLink: 'https://ucsd.edu',
       description:
-        'Machine learning for semiconductor manufacturing and test, including synthetic data, explainable ML, and wafer-level e-test variability.',
+        'Synthetic data for process control monitoring and WAT limit setting, metrology-to-e-test correlation, SHAP-guided wafer-level e-test variability, and tool-chain attestation from wafer-level process monitoring.',
     },
     {
       company: 'KBR',
@@ -199,18 +212,22 @@ const CONFIG = {
     snippetVersion: 6,
   },
   themeConfig: {
-    defaultTheme: 'procyon',
+    // Forest is the first-visit default. It is also first in `themes`, which
+    // DaisyUI compiles as the :root theme. respectPrefersColorScheme stays
+    // false so a system light/dark preference does not replace Forest.
+    // localStorage is written only after the visitor picks a theme.
+    defaultTheme: 'forest',
     disableSwitch: false,
     respectPrefersColorScheme: false,
     displayAvatarRing: true,
     themes: [
+      'forest',
       'light',
       'dark',
       'emerald',
       'corporate',
       'synthwave',
       'halloween',
-      'forest',
       'Luxury',
       'business',
       'night',

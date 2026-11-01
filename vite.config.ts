@@ -17,6 +17,7 @@ export default defineConfig({
           metaImageURL: CONFIG.seo.imageURL,
           metaImageAlt: 'Matthew Nigh',
           siteUrl: CONFIG.seo.siteUrl,
+          defaultTheme: CONFIG.themeConfig.defaultTheme,
           jsonLd: JSON.stringify(CONFIG.structuredData),
         },
       },
