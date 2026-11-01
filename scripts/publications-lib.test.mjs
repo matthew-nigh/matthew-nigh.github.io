@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
 import test from 'node:test';
 import {
   assertExpectedAuthor,
@@ -206,6 +207,32 @@ test('author verification accepts known titles', () => {
     'Semantic Scholar',
   );
   assert.equal(matched.length, 2);
+});
+
+test('ITC 2026 override keeps the full title and still matches an indexed paper', () => {
+  const overrides = JSON.parse(
+    fs.readFileSync(
+      new URL('../src/data/publication-overrides.json', import.meta.url),
+      'utf8',
+    ),
+  );
+  const entry = overrides.entries.find(
+    (item) => item.id === 'beyond-monte-carlo-itc-2026',
+  );
+  const indexed = {
+    title:
+      'Beyond Monte Carlo: Improved Wafer Acceptance Test (WAT) Limit Setting via Correlation-Aware Synthetic Data Generation',
+    year: 2026,
+    venue: 'IEEE International Test Conference (ITC)',
+  };
+  const match = entry.match;
+  const titleMatches = indexed.title
+    .toLowerCase()
+    .includes(match.titleIncludes.toLowerCase());
+  assert.equal(entry.fallback.title, indexed.title);
+  assert.equal(match.year, 2026);
+  assert.equal(titleMatches && indexed.year === match.year, true);
+  assert.equal(/todo/i.test(JSON.stringify(entry)), false);
 });
 
 test('the updater may only write publications.json', () => {

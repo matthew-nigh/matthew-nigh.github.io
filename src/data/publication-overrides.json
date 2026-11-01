@@ -67,9 +67,9 @@
       },
       "order": 7,
       "highlight": true,
-      "note": "TODO: confirm the full title.",
+      "note": "Correlation-aware synthetic data generation for wafer acceptance test (WAT) limit setting.",
       "fallback": {
-        "title": "Beyond Monte Carlo... (full title TODO)",
+        "title": "Beyond Monte Carlo: Improved Wafer Acceptance Test (WAT) Limit Setting via Correlation-Aware Synthetic Data Generation",
         "venue": "IEEE International Test Conference (ITC)",
         "year": 2026
       }

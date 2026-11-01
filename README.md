@@ -22,7 +22,7 @@ npm run preview
 
 `src/data/publications.json` is generated from [DBLP pid 339/2053](https://dblp.org/pid/339/2053) (SPARQL) and [Semantic Scholar author 2189908711](https://www.semanticscholar.org/author/2189908711). Those IDs were checked against Matthew's known titles, including the ITC 2024 synthetic process-control paper, the ICIP 2022 radar super-resolution paper, and "Unveiling the Mask".
 
-Hand-curated extras live in `src/data/publication-overrides.json`: display order, highlight flags, the Best Paper Honorable Mention badge, the provisional "Beyond Monte Carlo..." title, and the under-review entry. The update script never writes that file.
+Hand-curated extras live in `src/data/publication-overrides.json`: display order, highlight flags, the Best Paper Honorable Mention badge, the ITC 2026 title "Beyond Monte Carlo: Improved Wafer Acceptance Test (WAT) Limit Setting via Correlation-Aware Synthetic Data Generation", and the under-review entry. The update script never writes that file. A catalog paper whose title includes "Beyond Monte Carlo" and whose year is 2026 picks up that override, so the fallback title is replaced once DBLP or Semantic Scholar indexes the paper.
 
 The update merges into the existing catalog. A paper that DBLP or Semantic Scholar omits stays in `publications.json`. An arXiv copy of a conference paper is folded into the conference record. Citation counts are stored when Semantic Scholar provides them.
 
