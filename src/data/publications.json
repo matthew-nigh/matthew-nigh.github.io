@@ -8,7 +8,7 @@
       "id": "doi:10.1145/3770743.3804428",
       "title": "STAMP: Semiconductor Tool-chain Attestation through Wafer-Level Machine Learning-based Process Monitoring",
       "year": 2026,
-      "venue": "Proceedings of the 63rd ACM/IEEE Design Automation Conference",
+      "venue": "ACM/IEEE Design Automation Conference (DAC)",
       "authors": [
         "Suraag Sunil Tellakula",
         "Ching-Yi Chang",
@@ -18,10 +18,12 @@
       ],
       "doi": "10.1145/3770743.3804428",
       "url": "https://doi.org/10.1145/3770743.3804428",
+      "dblpKey": "conf/dac/TellakulaCNCM26",
+      "dblpUrl": "https://dblp.org/rec/conf/dac/TellakulaCNCM26",
       "semanticScholarId": "79e3da1faadd75c1cb1a607a501d0ba801eec929",
       "semanticScholarUrl": "https://www.semanticscholar.org/paper/79e3da1faadd75c1cb1a607a501d0ba801eec929",
       "citationCount": 0,
-      "sources": ["semantic-scholar"]
+      "sources": ["semantic-scholar", "dblp"]
     },
     {
       "id": "doi:10.1109/vts69484.2026.11563333",
