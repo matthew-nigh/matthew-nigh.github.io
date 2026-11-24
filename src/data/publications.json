@@ -5,6 +5,26 @@
   },
   "papers": [
     {
+      "id": "doi:10.1109/itc64303.2026.00009",
+      "title": "Beyond Monte Carlo: Improved Wafer Acceptance Test (WAT) Limit Setting via Correlation-Aware Synthetic Data Generation",
+      "year": 2026,
+      "venue": "International Test Conference",
+      "authors": [
+        "Matthew Nigh",
+        "Aric Fowler",
+        "Gabrielle Geppert",
+        "Ching-Yi Chang",
+        "John M. Carulli",
+        "Y. Makris"
+      ],
+      "doi": "10.1109/ITC64303.2026.00009",
+      "url": "https://doi.org/10.1109/ITC64303.2026.00009",
+      "semanticScholarId": "f39f73bc48d1ace4dec2a8d90fcb0c63535a26b9",
+      "semanticScholarUrl": "https://www.semanticscholar.org/paper/f39f73bc48d1ace4dec2a8d90fcb0c63535a26b9",
+      "citationCount": 0,
+      "sources": ["semantic-scholar"]
+    },
+    {
       "id": "doi:10.1145/3770743.3804428",
       "title": "STAMP: Semiconductor Tool-chain Attestation through Wafer-Level Machine Learning-based Process Monitoring",
       "year": 2026,
@@ -22,7 +42,7 @@
       "dblpUrl": "https://dblp.org/rec/conf/dac/TellakulaCNCM26",
       "semanticScholarId": "79e3da1faadd75c1cb1a607a501d0ba801eec929",
       "semanticScholarUrl": "https://www.semanticscholar.org/paper/79e3da1faadd75c1cb1a607a501d0ba801eec929",
-      "citationCount": 0,
+      "citationCount": 1,
       "sources": ["semantic-scholar", "dblp"]
     },
     {
@@ -62,7 +82,7 @@
       "dblpUrl": "https://dblp.org/rec/conf/vts/ChangNCM25",
       "semanticScholarId": "23251e05a5e0e0f6aec360fd7e9763ecad6c2398",
       "semanticScholarUrl": "https://www.semanticscholar.org/paper/23251e05a5e0e0f6aec360fd7e9763ecad6c2398",
-      "citationCount": 2,
+      "citationCount": 3,
       "sources": ["dblp", "semantic-scholar"]
     },
     {
@@ -84,7 +104,7 @@
       "dblpUrl": "https://dblp.org/rec/conf/iccad/TellakulaCNVCM25",
       "semanticScholarId": "5f287ce972cc5e048cfb15bbbad5d408a20e799e",
       "semanticScholarUrl": "https://www.semanticscholar.org/paper/5f287ce972cc5e048cfb15bbbad5d408a20e799e",
-      "citationCount": 1,
+      "citationCount": 2,
       "sources": ["dblp", "semantic-scholar"]
     },
     {
@@ -99,7 +119,7 @@
       "dblpUrl": "https://dblp.org/rec/conf/itc/NighCM24",
       "semanticScholarId": "2748d97e55e5d87551f33fb689b81a6d7bdf9023",
       "semanticScholarUrl": "https://www.semanticscholar.org/paper/2748d97e55e5d87551f33fb689b81a6d7bdf9023",
-      "citationCount": 0,
+      "citationCount": 1,
       "sources": ["dblp", "semantic-scholar"]
     },
     {
@@ -122,7 +142,7 @@
       "semanticScholarId": "b2b5fa805b8a8f35e6e2c47d020eeb7a0a328379",
       "semanticScholarUrl": "https://www.semanticscholar.org/paper/b2b5fa805b8a8f35e6e2c47d020eeb7a0a328379",
       "arxivId": "2305.02092",
-      "citationCount": 30,
+      "citationCount": 31,
       "sources": ["dblp", "semantic-scholar"]
     }
   ]
